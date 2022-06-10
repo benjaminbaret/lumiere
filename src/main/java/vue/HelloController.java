@@ -1,4 +1,4 @@
-package com.lumiere.lum;
+package vue;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
