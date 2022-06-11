@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f9ca24;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeScreen">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f9ca24;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.HomeScreen">
    <children>
       <Button layoutX="465.0" layoutY="275.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <cursor>
