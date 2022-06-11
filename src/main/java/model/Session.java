@@ -1,5 +1,8 @@
 package model;
 
 public class Session {
-    private Movie m_movie;
+    private Movie movie;
+    private Room room;
+    private int idSession;
+
 }

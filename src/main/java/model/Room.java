@@ -1,5 +1,9 @@
 package model;
 
 public class Room {
-    private int m_number, m_capacity;
+    private int number;
+    private int capacity;
+    private String title;
+
+
 }
