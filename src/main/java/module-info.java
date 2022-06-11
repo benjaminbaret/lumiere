@@ -4,6 +4,6 @@ module com.lumiere.lum {
     requires java.sql;
 
 
-    opens vue to javafx.fxml;
-    exports vue;
+    opens controller to javafx.fxml;
+    exports controller;
 }

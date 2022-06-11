@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.VueFXML">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VueFXML">
    <children>
       <Button fx:id="enter_button" layoutX="268.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="63.0" text="Enter" />
       <TextField fx:id="room_name" alignment="CENTER" layoutX="226.0" layoutY="119.0" promptText="Enter the room name" />

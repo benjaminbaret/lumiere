@@ -1,4 +1,4 @@
-package vue;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +17,10 @@ public class VueFXML {
     private void handleButtonAction(ActionEvent event) {
         try {
 
+            // get room_name
             String nameRoom = room_name.getText();
+
+            // get capacity room
             int capacityRoom = Integer.parseInt(capacity.getText());
 
             DataBaseModel data_base = new DataBaseModel();
