@@ -9,8 +9,8 @@ import java.io.IOException;
 public class MainVue extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 620, 440);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("add_movie_one.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("BOUTON TEST!");
         stage.setScene(scene);
         stage.show();

@@ -11,8 +11,6 @@ public class DataBaseModel {
     private static final String DATABASE_PASSWORD = "root";
     private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
 
-
-
     public void insertRoom(String room_name, int capacity) {
 
         // Establishing a Connection
