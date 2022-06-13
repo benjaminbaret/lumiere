@@ -18,7 +18,7 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: fff;">
          <left>
-            <Pane prefHeight="600.0" prefWidth="229.0" style="-fx-background-color: f9ca24;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="600.0" prefWidth="229.0" style="-fx-background-color: #5271ff;" BorderPane.alignment="CENTER" />
          </left>
          <center>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -43,7 +43,7 @@
                         </TextField>
                         <DatePicker fx:id="movieDate_field" editable="false" layoutX="25.0" layoutY="301.0" prefHeight="31.0" prefWidth="245.0" promptText="Realease date" style="-fx-background-color: transparent;" />
                         <ChoiceBox fx:id="movieGenre_choice" layoutX="459.0" layoutY="298.0" prefHeight="36.0" prefWidth="239.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 2px; -fx-border-width: 0.5px;" />
-                        <Button fx:id="buttonContinue" layoutX="589.0" layoutY="511.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: f9ca24; -fx-background-radius: 5px;" text="Continue" textFill="WHITE">
+                        <Button fx:id="buttonContinue" layoutX="589.0" layoutY="511.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #5271ff; -fx-background-radius: 5px;" text="Continue" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

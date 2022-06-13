@@ -9,8 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,7 +25,10 @@ public class AddMovie_one {
     private ChoiceBox movieGenre_choice;
 
     @FXML
-    private Button buttonContinue;
+    private TextField movieName_field, movieDuration_field, movieRealisator_field, movieDirector_field;
+    @FXML
+    private DatePicker movieDate_field;
+
 
     @FXML
     private void initialize() {
@@ -34,10 +36,19 @@ public class AddMovie_one {
     }
     @FXML
     private void nextPage(ActionEvent event)throws IOException {
-        Parent root=FXMLLoader.load(getClass().getResource("add_movie_two.fxml"));
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(movieName_field.getText().isBlank() || movieDuration_field.getText().isBlank() || movieRealisator_field.getText().isBlank() || movieDirector_field.getText().isBlank() || movieDate_field.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("REQUIRED");
+            alert.setContentText("ALL FIELD MUST ARE REQUIRED");
+            alert.showAndWait();
+        }
+        else {
+            Parent root=FXMLLoader.load(getClass().getResource("add_movie_two.fxml"));
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene=new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
+
 }

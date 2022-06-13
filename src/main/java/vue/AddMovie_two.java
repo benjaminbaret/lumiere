@@ -9,9 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.DataBaseModel;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddMovie_two {
 
@@ -21,14 +24,8 @@ public class AddMovie_two {
     @FXML
     private Button movieUploadImage_button;
 
-    private Button buttonBackMovie;
-
     @FXML
-    private void uploadImage(ActionEvent event) {
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png"));
-        File f = fc.showOpenDialog(null);
-    }
+    private Button buttonBackMovie;
 
     @FXML
     private void previousPage(ActionEvent event)throws IOException {
