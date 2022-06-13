@@ -1,23 +1,19 @@
 package model;
 
+import java.sql.Date;
+
 public class Employee extends Person {
     private int idEmployee;
-    private String username;
     private String password;
 
-    public Employee(String firstName, String lastName, int age, String gender, int idEmployee, String username, String password) {
-        super(firstName, lastName, age, gender);
+    public Employee(String firstName, String lastName, String email, Date dateOfBirth, String password, int idEmployee) {
+        super(firstName, lastName, email, dateOfBirth);
         this.idEmployee = idEmployee;
-        this.username = username;
         this.password = password;
     }
 
     public int getIdEmployee() {
         return idEmployee;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public String getPassword() {

@@ -43,7 +43,7 @@ public class RegistrationMember {
     }
 
     @FXML
-    private void handleContinueButtonAction(ActionEvent event) { a
+    private void handleContinueButtonAction(ActionEvent event) {
         if(assertFields.isPhoneTextFieldValid(phoneNumberField.getText()) &&
                 assertFields.isEmailAddressTextFieldValid(emailField.getText()))
         {

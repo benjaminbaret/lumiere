@@ -2,11 +2,11 @@ package model;
 
 import java.sql.Date;
 
-public class Customer extends Person {
+public class Customer extends Guest {
 
     private String password;
     private String phoneNumber;
-    
+
     public Customer(String firstName, String lastName, String email, Date dateOfBirth, String password, String phoneNumber) {
         super(firstName, lastName, email, dateOfBirth);
         this.password = password;
@@ -15,8 +15,8 @@ public class Customer extends Person {
 
     public String getPassword() {
         return password;
-    } 
-    
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
