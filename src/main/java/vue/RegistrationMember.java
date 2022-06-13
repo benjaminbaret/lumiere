@@ -42,8 +42,8 @@ public class RegistrationMember {
         errorDialogPane = new DialogPane();
     }
 
-    @FXML 
-    private void handleContinueButtonAction(ActionEvent event) {
+    @FXML
+    private void handleContinueButtonAction(ActionEvent event) { a
         if(assertFields.isPhoneTextFieldValid(phoneNumberField.getText()) &&
                 assertFields.isEmailAddressTextFieldValid(emailField.getText()))
         {
@@ -56,7 +56,7 @@ public class RegistrationMember {
         }
     }
 
-    @FXML 
+    @FXML
     private void okButtonClicked(ActionEvent event){
         errorDialogPane.setVisible(false);
     }
