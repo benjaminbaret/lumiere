@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 13 juin 2022 à 17:57
+-- Généré le : lun. 13 juin 2022 à 19:38
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `lumierebdd`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(90) NOT NULL,
+  `lastName` varchar(90) NOT NULL,
+  `birthDate` date NOT NULL,
+  `email` varchar(90) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phoneNumber` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,21 +61,19 @@ CREATE TABLE `guest` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `dateOfBirth` date NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL,
-  `phoneNumber` text NOT NULL
+  `email` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `guest`
 --
 
-INSERT INTO `guest` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES
-(1, 'Afram', 'Diril', '0000-00-00', 'male', '', ''),
-(2, 'Benjamin', 'Baret', '0000-00-00', 'male', '', ''),
-(3, 'a', 'b', '0000-00-00', 'azd', 'ui', '08980'),
-(4, 'dzrgt', 'szdefrg', '2022-06-16', 'zerg', 'zefr', 'zferg'),
-(5, 'azerty', 'azert', '2022-06-17', 'azertyu@gmail.com', 'azertghyju', '0768774792');
+INSERT INTO `guest` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`) VALUES
+(1, 'Afram', 'Diril', '0000-00-00', 'male'),
+(2, 'Benjamin', 'Baret', '0000-00-00', 'male'),
+(3, 'a', 'b', '0000-00-00', 'azd'),
+(4, 'dzrgt', 'szdefrg', '2022-06-16', 'zerg'),
+(5, 'azerty', 'azert', '2022-06-17', 'azertyu@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -134,6 +148,12 @@ INSERT INTO `session` (`id`, `startProjection`, `endProjection`, `idRoom`, `idMo
 --
 
 --
+-- Index pour la table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `employee`
 --
 ALTER TABLE `employee`
@@ -168,6 +188,12 @@ ALTER TABLE `session`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `employee`
