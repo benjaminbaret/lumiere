@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 11 juin 2022 à 17:48
+-- Généré le : lun. 13 juin 2022 à 17:57
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -44,17 +44,22 @@ CREATE TABLE `guest` (
   `id` int(11) NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
-  `age` int(11) NOT NULL,
-  `gender` varchar(15) NOT NULL
+  `dateOfBirth` date NOT NULL,
+  `email` text NOT NULL,
+  `password` text NOT NULL,
+  `phoneNumber` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `guest`
 --
 
-INSERT INTO `guest` (`id`, `firstName`, `lastName`, `age`, `gender`) VALUES
-(1, 'Afram', 'Diril', 22, 'male'),
-(2, 'Benjamin', 'Baret', 20, 'male');
+INSERT INTO `guest` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES
+(1, 'Afram', 'Diril', '0000-00-00', 'male', '', ''),
+(2, 'Benjamin', 'Baret', '0000-00-00', 'male', '', ''),
+(3, 'a', 'b', '0000-00-00', 'azd', 'ui', '08980'),
+(4, 'dzrgt', 'szdefrg', '2022-06-16', 'zerg', 'zefr', 'zferg'),
+(5, 'azerty', 'azert', '2022-06-17', 'azertyu@gmail.com', 'azertghyju', '0768774792');
 
 -- --------------------------------------------------------
 
@@ -174,7 +179,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT pour la table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `room`
