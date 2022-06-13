@@ -4,7 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import model.Customer;
 import model.DataBaseModel;
+import model.Person;
 import org.w3c.dom.Text;
 
 import java.sql.Date;
@@ -40,19 +42,22 @@ public class RegistrationMember {
         errorDialogPane = new DialogPane();
     }
 
-    @FXML protected void handleContinueButtonAction(ActionEvent event) {
+    @FXML 
+    private void handleContinueButtonAction(ActionEvent event) {
         if(assertFields.isPhoneTextFieldValid(phoneNumberField.getText()) &&
                 assertFields.isEmailAddressTextFieldValid(emailField.getText()))
         {
-            dataBaseModel.insertClient(firstNameField.getText(), lastNameField.getText(),
-                    emailField.getText(), passwordField.getText(), phoneNumberField.getText(), Date.valueOf(dateOfBirthField.getValue()));
+            Customer customer = new Customer(firstNameField.getText(), lastNameField.getText(),
+                    emailField.getText(), Date.valueOf(dateOfBirthField.getValue()), passwordField.getText(), phoneNumberField.getText());
+            dataBaseModel.insertClient(customer);
         }
         else{
             errorDialogPane.setVisible(true);
         }
     }
 
-    @FXML protected void okButtonClicked(ActionEvent event){
+    @FXML 
+    private void okButtonClicked(ActionEvent event){
         errorDialogPane.setVisible(false);
     }
 

@@ -1,17 +1,20 @@
 package model;
 
+import java.sql.Date;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
-    private int age;
-    private String gender;
+    private String email;
+    
+    private Date dateOfBirth;
 
     // constructor
-    public Person(String firstName, String lastName, int age, String gender) {
+    public Person(String firstName, String lastName, String email, Date dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
-        this.gender = gender;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
     }
 
     // return the firstName
@@ -23,23 +26,19 @@ public abstract class Person {
     public String getLastName() {
         return lastName;
     }
-
-    // return the age
-    public int getAge() {
-        return age;
+    
+    public String getEmail() {
+        return email;
     }
 
-    // return the gender
-    public String getGender() {
-        return gender;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
-
+    
     @Override
     public String toString() {
         return "Person : " +
                 "firstName = " + firstName +
-                ", lastName = " + lastName +
-                ", age = " + age +
-                ", gender = " + gender;
+                ", lastName = " + lastName;
     }
 }

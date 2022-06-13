@@ -18,10 +18,5 @@ public class AssertFields {
         Matcher matcher = pattern.matcher(emailFieldString);
         return matcher.matches();
     }
-
-    public boolean isDateTextFieldValid(Date dateOfBirth){
-        Pattern pattern = Pattern.compile("\\s+(?:19\\d{2}|20[01][0-9]|2020)[-/.](?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])\\b");
-        Matcher matcher = pattern.matcher(dateOfBirth.toString());
-        return matcher.matches();
-    }
+    
 }
