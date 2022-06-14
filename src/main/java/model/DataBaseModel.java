@@ -52,6 +52,30 @@ public class DataBaseModel {
         }
     }
 
+    public void insertNewMovie(Movie movie) {
+        String INSERT_QUERY_MOVIE = "INSERT INTO `movie` (`title`, `releaseDate`, `duration`, `image`, `director`, `realisator`, `genre`, `description`, `actor`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_MOVIE);
+            preparedStatement.setString(1, movie.getTitle());
+            preparedStatement.setDate(2, movie.getReleaseDate());
+            preparedStatement.setTime(3, movie.getDuration());
+            preparedStatement.setBinaryStream(4, movie.getImage());
+            preparedStatement.setString(5, movie.getDirector());
+            preparedStatement.setString(6, movie.getRealisator());
+            preparedStatement.setString(7, movie.getGenre());
+            preparedStatement.setString(8, movie.getDescription());
+            preparedStatement.setString(9, movie.getActor());
+
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public boolean authenticateClient(String email, String password){
         String SQL_QUERY = "SELECT * FROM `customer` WHERE email = '"+ email + "' AND password = '"+ password + "';";
         try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
