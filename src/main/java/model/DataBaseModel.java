@@ -52,4 +52,21 @@ public class DataBaseModel {
         }
     }
 
+    public boolean authenticateClient(String email, String password){
+        String SQL_QUERY = "SELECT * FROM `customer` WHERE email = '"+ email + "' AND password = '"+ password + "';";
+        try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
+            PreparedStatement preparedStatement = connection.prepareCall(SQL_QUERY);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+       return false;
+    }
 }
