@@ -9,10 +9,12 @@ import model.DataBaseModel;
 import model.Person;
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.sql.Date;
 
 
 public class RegistrationMember {
+    SceneController sceneController;
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
@@ -36,20 +38,23 @@ public class RegistrationMember {
     @FXML
     private Button okDialogButton;
 
+
     public RegistrationMember(){
+        sceneController = new SceneController();
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
         errorDialogPane = new DialogPane();
     }
 
     @FXML
-    private void handleContinueButtonAction(ActionEvent event) {
+    private void handleContinueButtonAction(ActionEvent event) throws IOException {
         if(assertFields.isPhoneTextFieldValid(phoneNumberField.getText()) &&
                 assertFields.isEmailAddressTextFieldValid(emailField.getText()))
         {
             Customer customer = new Customer(firstNameField.getText(), lastNameField.getText(),
                     emailField.getText(), Date.valueOf(dateOfBirthField.getValue()), passwordField.getText(), phoneNumberField.getText());
             dataBaseModel.insertClient(customer);
+            sceneController.toLoggingMember(event);
         }
         else{
             errorDialogPane.setVisible(true);

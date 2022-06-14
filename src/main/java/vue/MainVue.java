@@ -9,7 +9,7 @@ import java.io.IOException;
 public class MainVue extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("login_member.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("registration_member.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("BOUTON TEST!");
         stage.setScene(scene);
