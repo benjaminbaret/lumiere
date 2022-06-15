@@ -2,19 +2,21 @@ package vue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.stage.Stage;
 import model.Customer;
 import model.DataBaseModel;
-import model.Person;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.sql.Date;
 
 
 public class RegistrationMember {
-    SceneController sceneController;
+    FXMLLoader loginMemberLoader;
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
@@ -40,10 +42,11 @@ public class RegistrationMember {
 
 
     public RegistrationMember(){
-        sceneController = new SceneController();
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
         errorDialogPane = new DialogPane();
+        loginMemberLoader = new FXMLLoader(getClass().getResource("login_page.fxml"));
+
     }
 
     @FXML
@@ -54,7 +57,14 @@ public class RegistrationMember {
             Customer customer = new Customer(firstNameField.getText(), lastNameField.getText(),
                     emailField.getText(), Date.valueOf(dateOfBirthField.getValue()), passwordField.getText(), phoneNumberField.getText());
             dataBaseModel.insertClient(customer);
-            sceneController.toLoggingMember(event);
+            ///
+            LoginPage loginPage = loginMemberLoader.getController();
+            loginPage.setLoginTitleText("Login member");
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(loginMemberLoader.load());
+            stage.setScene(scene);
+            stage.show();
+            ///
         }
         else{
             errorDialogPane.setVisible(true);

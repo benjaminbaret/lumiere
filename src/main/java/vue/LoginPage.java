@@ -2,24 +2,38 @@ package vue;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import model.DataBaseModel;
 
-public class LoginMember {
+import java.io.IOException;
 
-    DataBaseModel dataBaseModel;
+public class LoginPage {
+
+    SceneController sceneController;
+    private DataBaseModel dataBaseModel;
+
     @FXML
-    TextField emailTextField;
+    private Text loginTitleText;
+
     @FXML
-    PasswordField passwordTextField;
+    private TextField emailTextField;
+    @FXML
+    private PasswordField passwordTextField;
 
     @FXML
     private Label authentificationFailedLabel;
 
-    public LoginMember(){
+    public LoginPage(){
         dataBaseModel = new DataBaseModel();
+        sceneController = new SceneController();
+
     }
 
     @FXML
@@ -35,6 +49,16 @@ public class LoginMember {
     private void handleResetButtonClicked(ActionEvent event){
         emailTextField.setText("");
         passwordTextField.setText("");
+    }
+
+    @FXML
+    private void exitButtonClicked(ActionEvent event) throws IOException {
+       sceneController.toHomeScreen(event);
+    }
+
+    public void setLoginTitleText(String loginString){
+        loginTitleText.setText(loginString);
+        System.out.println(loginString);
     }
 }
 
