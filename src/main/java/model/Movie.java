@@ -18,6 +18,8 @@ public class Movie {
     private Time duration;
     private String description;
 
+    private String imageSource;
+
     public Movie(String title, String director, String realisator, String genre, String actor, Date releaseDate, FileInputStream image, Time duration, String description) {
         this.title = title;
         this.director = director;
@@ -30,24 +32,70 @@ public class Movie {
         this.description = description;
     }
 
+    public Movie() {}
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setRealisator(String realisator) {
+        this.realisator = realisator;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setActor(String actor) {
+        this.actor = actor;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public void setImage(FileInputStream image) {
+        this.image = image;
+    }
+
+    public void setDuration(Time duration) {
+        this.duration = duration;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImageSource(String imageSource) {
+        this.imageSource = imageSource;
+    }
+
+    public String getImageSource() {
+        return imageSource;
+    }
+
     public String getTitle() {
         return title;
     }
 
     public String getDirector() {
-        return director;
+        return "Director : " + director;
     }
 
     public String getRealisator() {
-        return realisator;
+        return "Realisator : " + realisator;
     }
 
     public String getGenre() {
-        return genre;
+        return "Genre : " + genre;
     }
 
     public String getActor() {
-        return actor;
+        return "Actor : " + actor;
     }
 
     public Date getReleaseDate() {
@@ -63,6 +111,6 @@ public class Movie {
     }
 
     public String getDescription() {
-        return description;
+        return "Description : \n" + description;
     }
 }

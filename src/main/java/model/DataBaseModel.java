@@ -1,7 +1,10 @@
 package model;
 
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javax.swing.*;
 
+import java.io.InputStream;
 import java.sql.*;
 
 public class DataBaseModel {
@@ -93,4 +96,26 @@ public class DataBaseModel {
         }
        return false;
     }
+
+    public void displayImage(ImageView imageView) {
+        try {
+            String query = "SELECT `image` FROM movie where `id`=4";
+
+            try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
+                PreparedStatement preparedStatement = connection.prepareCall(query);
+                ResultSet rs = preparedStatement.executeQuery();
+                if (rs.first()) {
+                    Blob blob = rs.getBlob(1);
+                    InputStream inputStream = blob.getBinaryStream();
+                    Image img = new Image(inputStream);
+                    imageView.setImage(img);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+        }
+    }
+
 }

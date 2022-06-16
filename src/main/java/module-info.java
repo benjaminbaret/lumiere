@@ -3,6 +3,7 @@ module com.lumiere.lum {
     requires javafx.fxml;
     requires java.sql;
     requires jfxtras.controls;
+    requires java.desktop;
 
 
     opens vue to javafx.fxml;

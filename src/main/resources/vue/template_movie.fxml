@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="430.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.MovieTemplate">
+   <children>
+      <HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="692.0" style="-fx-background-color: #506FFF; -fx-background-radius: 15px; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, derive(cadetblue, -20%), 10, 0, 4, 4);" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="imageMovie" fitHeight="317.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/toy-story-cover.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets right="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="545.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="546.0">
+                     <children>
+                        <Label fx:id="titleMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="324.0" prefWidth="350.0" text="Title" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="releaseDateField" contentDisplay="CENTER" prefHeight="100.0" prefWidth="202.0" text="ReleaseDate" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <Label fx:id="directorMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="23.0" prefWidth="550.0" text="Director :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="realisatorMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="23.0" prefWidth="550.0" text="Realisator :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actorsMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="23.0" prefWidth="550.0" text="Actors :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="genreMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="23.0" prefWidth="550.0" text="Genre :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="durationMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="23.0" prefWidth="550.0" text="Duration :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="descriptionMovieField" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="176.0" prefWidth="550.0" text="Description :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
