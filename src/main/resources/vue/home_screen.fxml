@@ -22,5 +22,12 @@
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="458.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Employee" />
+      <Button fx:id="addMemberButton" layoutX="783.0" layoutY="242.0" mnemonicParsing="false" onAction="#addMemberButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
+      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="802.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/addMember.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="808.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add member" />
    </children>
 </AnchorPane>

@@ -62,11 +62,11 @@
                         <DatePicker fx:id="dateOfBirthField" editable="false" layoutX="451.0" layoutY="262.0" prefHeight="30.0" prefWidth="242.0" />
                         <Button layoutX="25.0" layoutY="430.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="123.0" text="Reset All" />
                         <Button layoutX="569.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleContinueButtonAction" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: f9ca24;" text="Continue" textFill="WHITE" />
-                        <DialogPane visible="false" fx:id="errorDialogPane" layoutX="205.0" layoutY="273.0" style="-fx-border-color: black;">
+                        <DialogPane fx:id="errorDialogPane" layoutX="205.0" layoutY="273.0" style="-fx-border-color: black;" visible="false">
                            <content>
                               <Pane prefHeight="100.0" prefWidth="400.0">
                                  <children>
-                                    <Button fx:id="okDialogButton" onAction="#okButtonClicked" layoutX="318.0" layoutY="61.0" mnemonicParsing="false" text="OK" />
+                                    <Button fx:id="okDialogButton" layoutX="318.0" layoutY="61.0" mnemonicParsing="false" onAction="#okButtonClicked" text="OK" />
                                     <Text layoutX="121.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrees are not correct.&#10;email = email@@example.com&#10;phone number = 0879765767" />
                                  </children>
                               </Pane>

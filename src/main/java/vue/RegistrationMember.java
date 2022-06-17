@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
@@ -16,6 +17,7 @@ import java.sql.Date;
 
 
 public class RegistrationMember {
+
     FXMLLoader loginMemberLoader;
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
@@ -37,8 +39,6 @@ public class RegistrationMember {
     @FXML
     private DialogPane errorDialogPane;
 
-    @FXML
-    private Button okDialogButton;
 
 
     public RegistrationMember(){
@@ -57,14 +57,15 @@ public class RegistrationMember {
             Customer customer = new Customer(firstNameField.getText(), lastNameField.getText(),
                     emailField.getText(), Date.valueOf(dateOfBirthField.getValue()), passwordField.getText(), phoneNumberField.getText());
             dataBaseModel.insertClient(customer);
-            ///
+
+            FXMLLoader loginMemberLoader= new FXMLLoader(getClass().getResource("login_page.fxml"));
+            Parent root = loginMemberLoader.load();
             LoginPage loginPage = loginMemberLoader.getController();
             loginPage.setLoginTitleText("Login member");
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(loginMemberLoader.load());
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            ///
         }
         else{
             errorDialogPane.setVisible(true);
@@ -74,6 +75,16 @@ public class RegistrationMember {
     @FXML
     private void okButtonClicked(ActionEvent event){
         errorDialogPane.setVisible(false);
+    }
+
+    @FXML
+    private void quitButtonClicked(ActionEvent event) throws IOException {
+        FXMLLoader homeScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        Parent root = homeScreenLoader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

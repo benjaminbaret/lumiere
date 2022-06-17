@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -14,9 +15,9 @@ import model.DataBaseModel;
 
 import java.io.IOException;
 
+
 public class LoginPage {
 
-    SceneController sceneController;
     private DataBaseModel dataBaseModel;
 
     @FXML
@@ -32,16 +33,31 @@ public class LoginPage {
 
     public LoginPage(){
         dataBaseModel = new DataBaseModel();
-        sceneController = new SceneController();
-
     }
 
     @FXML
-    private void handleContinueButtonAction(ActionEvent event){
-        if(dataBaseModel.authenticateClient(emailTextField.getText(), passwordTextField.getText())){
-            authentificationFailedLabel.setVisible(false);
-        } else{
-            authentificationFailedLabel.setVisible(true);
+    private void handleContinueButtonAction(ActionEvent event) throws IOException {
+        if(loginTitleText.getText().equals("Login member")){
+            if(dataBaseModel.authenticateClient(emailTextField.getText(), passwordTextField.getText())){
+                FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
+                Parent root = choiceScreenLoader.load();
+                ChoiceScreen choiceScreen = choiceScreenLoader.getController();
+                choiceScreen.setHelloLabel(emailTextField.getText());
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                authentificationFailedLabel.setVisible(false);
+            } else{
+                authentificationFailedLabel.setVisible(true);
+            }
+        }
+        else{
+            if(dataBaseModel.authenticateEmployee(emailTextField.getText(), passwordTextField.getText())){
+                authentificationFailedLabel.setVisible(false);
+            } else{
+                authentificationFailedLabel.setVisible(true);
+            }
         }
     }
 
@@ -53,7 +69,12 @@ public class LoginPage {
 
     @FXML
     private void exitButtonClicked(ActionEvent event) throws IOException {
-       sceneController.toHomeScreen(event);
+        FXMLLoader homeScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        Parent root = homeScreenLoader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void setLoginTitleText(String loginString){
