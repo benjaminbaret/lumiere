@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #506FFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.ChoiceScreen">
+   <children>
+      <Button onAction="#listMoviesButtonClicked" layoutX="133.0" layoutY="234.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="105.0" textFill="#fff6f6">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/movie.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="696.0" layoutY="234.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="105.0" textFill="#fff6f6">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/basket.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text fill="WHITE" layoutX="189.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movies">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="724.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quick Booking">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Label id="helloLabel" fx:id="helloLabel" layoutX="771.0" layoutY="69.0" style="-fx-background-color: orange;" text="Hello benjamin !" textFill="WHITE" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

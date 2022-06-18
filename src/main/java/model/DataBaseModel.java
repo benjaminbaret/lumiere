@@ -1,17 +1,14 @@
 package model;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javax.swing.*;
+import javafx.scene.control.TextField;
 
-import java.io.InputStream;
 import java.sql.*;
 
 public class DataBaseModel {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "root";
+    private static final String DATABASE_PASSWORD = "";
     private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
     private static final String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -96,26 +93,21 @@ public class DataBaseModel {
         }
        return false;
     }
-
-    public void displayImage(ImageView imageView) {
-        try {
-            String query = "SELECT `image` FROM movie where `id`=4";
-
-            try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
-                PreparedStatement preparedStatement = connection.prepareCall(query);
-                ResultSet rs = preparedStatement.executeQuery();
-                if (rs.first()) {
-                    Blob blob = rs.getBlob(1);
-                    InputStream inputStream = blob.getBinaryStream();
-                    Image img = new Image(inputStream);
-                    imageView.setImage(img);
-                }
+    public boolean authenticateEmployee(String email, String password){
+        String SQL_QUERY = "SELECT * FROM `employee` WHERE email = '"+ email + "' AND password = '"+ password + "';";
+        try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
+            PreparedStatement preparedStatement = connection.prepareCall(SQL_QUERY);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+            else{
+                return false;
             }
         }
-        catch (Exception e)
-        {
-            System.err.println(e.getMessage());
+        catch (SQLException e){
+            System.out.println(e);
         }
+       return false;
     }
-
 }
