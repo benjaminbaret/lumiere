@@ -4,6 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,9 +16,11 @@ import javafx.scene.layout.BorderPane;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimeTextField;
 import model.DataBaseModel;
 import model.Movie;
@@ -22,10 +28,11 @@ import model.Movie;
 public class AddMovie_one {
 
     // all the movie genres
-    ObservableList<String> genreListMove = FXCollections.observableArrayList("Drama","Thriller","Romantic");
+    ObservableList<String> genreListMove = FXCollections.observableArrayList("Drama","Thriller","Action","Comedy","Fantasy","Horror","Mystery","Romance","Western","Animation","Comedy","Crime","Historical","Horror","Science fiction","Other");
+
     @FXML
     //genre of the movie
-    private ChoiceBox movieGenre_choice;
+    private ComboBox<String> movieGenre_choice;
     @FXML
     //title of the movie
     private TextField movieName_field;
@@ -63,7 +70,7 @@ public class AddMovie_one {
     DataBaseModel dataBaseModel;
 
     // image of the movie
-    private FileInputStream imageMovie;
+    private InputStream imageMovie;
 
     public AddMovie_one() {
         assertFields = new AssertFields();
@@ -96,11 +103,21 @@ public class AddMovie_one {
     }
 
     @FXML
+    public void backToListMovie(ActionEvent event) throws  IOException {
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("list_movies.fxml"));
+        Parent root = addMemberScreenLoader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     private void uploadImage(ActionEvent event) throws IOException {
         FileChooser fc =new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png"));
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*"));
         File f = fc.showOpenDialog(null);
-        FileInputStream fileInputStream = new FileInputStream(f);
+        InputStream fileInputStream = new FileInputStream(f);
         Image image = new Image(fileInputStream);
         viewImageLoad.setImage(image);
         this.imageMovie = fileInputStream;
@@ -109,7 +126,7 @@ public class AddMovie_one {
     @FXML
     private void addMovieButton(ActionEvent event) throws IOException{
         Movie movie = new Movie(movieName_field.getText(), movieDirector_field.getText(),
-                movieRealisator_field.getText(), movieGenre_choice.getValue().toString(),
+                movieRealisator_field.getText(), movieGenre_choice.getValue(),
                 actorsField.getText(), Date.valueOf(movieDate_field.getValue()),
                 imageMovie, Time.valueOf(movieDuration_field.getLocalTime()),
                 descriptionField.getText());

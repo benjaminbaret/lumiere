@@ -7,14 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.DataBaseModel;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class AddMovie_two {
 

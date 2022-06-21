@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import model.Movie;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 public class MovieTemplate {
 
     @FXML
@@ -40,17 +43,18 @@ public class MovieTemplate {
     private Label titleMovieField;
 
     public void setData(Movie movie) {
-        Image img = new Image(getClass().getResourceAsStream(movie.getImageSource()));
-        imageMovie.setImage(img);
-        titleMovieField.setText(movie.getTitle());
-        releaseDateField.setText(String.valueOf(movie.getReleaseDate()));
-        directorMovieField.setText(movie.getDirector());
-        realisatorMovieField.setText(movie.getRealisator());
-        actorsMovieField.setText(movie.getActor());
-        genreMovieField.setText(movie.getGenre());
-        durationMovieField.setText("Duration :" + String.valueOf(movie.getDuration()));
-        descriptionMovieField.setText(movie.getDescription());
 
+        Image image = new Image(movie.getImage());
+        imageMovie.setImage(image);
+
+        titleMovieField.setText(movie.getTitle());
+        releaseDateField.setText("Release : " + movie.getReleaseDate());
+        directorMovieField.setText("Director : " + movie.getDirector());
+        realisatorMovieField.setText("Realisator : " + movie.getRealisator());
+        actorsMovieField.setText("Actor : " + movie.getActor());
+        genreMovieField.setText("Genre : " + movie.getGenre());
+        durationMovieField.setText("Duration : " + movie.getDuration());
+        descriptionMovieField.setText("Description : \n" + movie.getDescription());
     }
 
 }

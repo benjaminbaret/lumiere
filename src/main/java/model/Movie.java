@@ -1,7 +1,7 @@
 package model;
 
-import java.io.File;
-import java.io.FileInputStream;
+import javafx.scene.image.Image;
+
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.Time;
@@ -14,13 +14,13 @@ public class Movie {
     private String genre;
     private String actor;
     private Date releaseDate;
-    private FileInputStream image;
+    private InputStream image;
     private Time duration;
     private String description;
 
     private String imageSource;
 
-    public Movie(String title, String director, String realisator, String genre, String actor, Date releaseDate, FileInputStream image, Time duration, String description) {
+    public Movie(String title, String director, String realisator, String genre, String actor, Date releaseDate, InputStream image, Time duration, String description) {
         this.title = title;
         this.director = director;
         this.realisator = realisator;
@@ -58,7 +58,7 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public void setImage(FileInputStream image) {
+    public void setImage(InputStream image) {
         this.image = image;
     }
 
@@ -83,26 +83,26 @@ public class Movie {
     }
 
     public String getDirector() {
-        return "Director : " + director;
+        return director;
     }
 
     public String getRealisator() {
-        return "Realisator : " + realisator;
+        return realisator;
     }
 
     public String getGenre() {
-        return "Genre : " + genre;
+        return genre;
     }
 
     public String getActor() {
-        return "Actor : " + actor;
+        return actor;
     }
 
     public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public FileInputStream getImage() {
+    public InputStream getImage() {
         return image;
     }
 
@@ -111,6 +111,6 @@ public class Movie {
     }
 
     public String getDescription() {
-        return "Description : \n" + description;
+        return description;
     }
 }

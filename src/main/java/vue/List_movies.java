@@ -1,19 +1,23 @@
 package vue;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import model.DataBaseModel;
 import model.Movie;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -21,11 +25,7 @@ import java.util.ResourceBundle;
 public class List_movies implements Initializable {
 
     @FXML
-    private ImageView image_one;
-    @FXML
     private GridPane grid;
-    @FXML
-    private ScrollPane scroll;
 
     private List<Movie> list_movie;
 
@@ -39,30 +39,23 @@ public class List_movies implements Initializable {
 
     private List<Movie> list_movie() {
         List<Movie> lm = new ArrayList<>();
-        Movie movie = new Movie();
-        movie.setTitle("Dunkerque");
-        movie.setImageSource("/img/dunkerque-cover.jpg");
-        lm.add(movie);
 
-        movie = new Movie();
-        movie.setTitle("Interstellar");
-        movie.setImageSource("/img/interstellar-cover.jpg");
-        lm.add(movie);
+        int size_arrayList = dataBaseModel.selectImageMovie().size();
 
-        movie = new Movie();
-        movie.setTitle("Toy Story");
-        movie.setImageSource("/img/toy-story-cover.jpg");
-        lm.add(movie);
+        for (int i = 0; i< size_arrayList; i++) {
+            Movie movie = new Movie();
+            movie.setTitle(dataBaseModel.selectImageMovie().get(i).getTitle());
+            movie.setReleaseDate(dataBaseModel.selectImageMovie().get(i).getReleaseDate());
+            movie.setDuration(dataBaseModel.selectImageMovie().get(i).getDuration());
+            movie.setImage(dataBaseModel.selectImageMovie().get(i).getImage());
+            movie.setDirector(dataBaseModel.selectImageMovie().get(i).getDirector());
+            movie.setRealisator(dataBaseModel.selectImageMovie().get(i).getRealisator());
+            movie.setGenre(dataBaseModel.selectImageMovie().get(i).getGenre());
+            movie.setDescription(dataBaseModel.selectImageMovie().get(i).getDescription());
+            movie.setActor(dataBaseModel.selectImageMovie().get(i).getActor());
 
-        movie = new Movie();
-        movie.setTitle("Afram 4");
-        movie.setImageSource("/img/pdp_4.png");
-        lm.add(movie);
-
-        movie = new Movie();
-        movie.setTitle("Afram 5");
-        movie.setImageSource("/img/pdp_5.png");
-        lm.add(movie);
+            lm.add(movie);
+        }
 
         return lm;
     }
@@ -99,6 +92,15 @@ public class List_movies implements Initializable {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    public void backToHome(ActionEvent event) throws  IOException {
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        Parent root = addMemberScreenLoader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

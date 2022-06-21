@@ -46,7 +46,6 @@ public class RegistrationMember {
         dataBaseModel = new DataBaseModel();
         errorDialogPane = new DialogPane();
         loginMemberLoader = new FXMLLoader(getClass().getResource("login_page.fxml"));
-
     }
 
     @FXML
