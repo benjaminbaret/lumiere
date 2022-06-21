@@ -105,6 +105,26 @@ public class DataBaseModel {
         }
     }
 
+    public void insertNewSession(Session session) {
+        String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_MOVIE);
+            preparedStatement.setString(1, session.getMovieTitle());
+            preparedStatement.setString(2, session.getRoomName());
+            preparedStatement.setDate(3, session.getSessionDate());
+            preparedStatement.setTime(4, session.getStartTime());
+            preparedStatement.setTime(5, session.getEndTime());
+
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
 
     // return a ArrayList which contains all the movies information
     public ArrayList<Movie> selectImageMovie() {
@@ -142,8 +162,8 @@ public class DataBaseModel {
         return list_movies;
     }
 
+    // select all the title from the movie
     public ArrayList<String> selectTitleMovie() {
-        // An ArrayList which contains a list of arraylist
         ArrayList<String> list_title_movies = new ArrayList<>();
 
         String SELECT_TITLE_QUERY_MOVIE = "SELECT title FROM movie;";
@@ -163,40 +183,28 @@ public class DataBaseModel {
         return list_title_movies;
     }
 
-   /* public ObservableList<String> selectRoom() {
-        // An ArrayList which contains a list of arraylist
-        ObservableList<String>
+    // select all the title from the movie
+    public ArrayList<String> selectRoomName() {
+        ArrayList<String> list_room_name = new ArrayList<>();
 
-        String SELECT_IMAGE_QUERY_MOVIE = "SELECT name FROM room;";
+        // The query
+        String SELECT_TITLE_QUERY_MOVIE = "SELECT name FROM room;";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
 
             // Create a statement
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_IMAGE_QUERY_MOVIE);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TITLE_QUERY_MOVIE);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()) {
-                my_movie.setTitle(rs.getString(2));
-                my_movie.setReleaseDate(rs.getDate(3));
-                my_movie.setDuration(rs.getTime(4));
-
-                Blob blob = rs.getBlob(5);
-                InputStream inputStream = blob.getBinaryStream();
-
-                my_movie.setImage(inputStream);
-
-                my_movie.setDirector(rs.getString(6));
-                my_movie.setRealisator(rs.getString(7));
-                my_movie.setGenre(rs.getString(8));
-                my_movie.setDescription(rs.getString(9));
-                my_movie.setActor(rs.getString(10));
-                list_movies.add(my_movie);
+                // put the result of the query into the ArrayList
+                list_room_name.add(rs.getString(1));
             }
             rs.close();
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return list_movies;
-    }*/
+        return list_room_name;
+    }
 
     public boolean authenticateClient(String email, String password){
         String SQL_QUERY = "SELECT * FROM `customer` WHERE email = '"+ email + "' AND password = '"+ password + "';";

@@ -1,7 +1,5 @@
 package model;
 
-import javafx.scene.image.Image;
-
 import java.io.InputStream;
 import java.sql.Date;
 import java.sql.Time;
