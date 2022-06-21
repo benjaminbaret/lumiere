@@ -1,42 +1,17 @@
 package model;
 
-import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-
-import javax.imageio.ImageIO;
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-
 public class DataBaseModel {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "root";
-    private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
-    private static final String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
-    public void insertRoom(String room_name, int capacity) {
-
-        // Establishing a Connection
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
-
-            // Create a statement
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
-            preparedStatement.setString(1, room_name);
-            preparedStatement.setInt(2, capacity);
-            System.out.println(preparedStatement);
-
-            // Execute the query
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
+    // insert a new client into the dataBase
     public void insertClient(Customer customer){
+        String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
         // Establishing a Connection
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
