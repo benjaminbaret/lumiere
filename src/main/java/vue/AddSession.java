@@ -61,6 +61,8 @@ public class AddSession implements Initializable {
         roomName_choice.setItems(obListOfRoomName);
     }
 
+
+
     // add a session to the database
     @FXML
     private void addSessionButton(ActionEvent event) throws IOException {

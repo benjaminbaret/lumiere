@@ -1,17 +1,39 @@
 package model;
 
-import java.io.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
+
 import java.sql.*;
 import java.util.ArrayList;
+
 public class DataBaseModel {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "root";
+    private static final String DATABASE_PASSWORD = "";
+    private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
+    private static final String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
-    // insert a new client into the dataBase
+    public void insertRoom(String room_name, int capacity) {
+
+        // Establishing a Connection
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
+            preparedStatement.setString(1, room_name);
+            preparedStatement.setInt(2, capacity);
+            System.out.println(preparedStatement);
+
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public void insertClient(Customer customer){
-        String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
         // Establishing a Connection
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
@@ -33,27 +55,6 @@ public class DataBaseModel {
         }
     }
 
-    public void insertGuest(Guest guest){
-        String INSERT_QUERY_GUEST = "INSERT INTO `guest` (`firstName`, `lastName`, `dateOfBirth`, `email`) VALUES (?, ?, ?, ?)";
-
-
-        // Establishing a Connection
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
-
-            // Create a statement
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_GUEST);
-            preparedStatement.setString(1, guest.getFirstName());
-            preparedStatement.setString(2, guest.getLastName());
-            preparedStatement.setDate(3, guest.getDateOfBirth());
-            preparedStatement.setString(4, guest.getEmail());
-
-            // Execute the query
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
     public void insertNewMovie(Movie movie) {
         String INSERT_QUERY_MOVIE = "INSERT INTO `movie` (`title`, `releaseDate`, `duration`, `image`, `director`, `realisator`, `genre`, `description`, `actor`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -64,7 +65,7 @@ public class DataBaseModel {
             preparedStatement.setString(1, movie.getTitle());
             preparedStatement.setDate(2, movie.getReleaseDate());
             preparedStatement.setTime(3, movie.getDuration());
-            preparedStatement.setBinaryStream(4, movie.getImage(), movie.getImage().available());
+            preparedStatement.setBinaryStream(4, movie.getImage());
             preparedStatement.setString(5, movie.getDirector());
             preparedStatement.setString(6, movie.getRealisator());
             preparedStatement.setString(7, movie.getGenre());
@@ -75,31 +76,8 @@ public class DataBaseModel {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
-
-    public void insertNewSession(Session session) {
-        String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
-
-            // Create a statement
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_MOVIE);
-            preparedStatement.setString(1, session.getMovieTitle());
-            preparedStatement.setString(2, session.getRoomName());
-            preparedStatement.setDate(3, session.getSessionDate());
-            preparedStatement.setTime(4, session.getStartTime());
-            preparedStatement.setTime(5, session.getEndTime());
-
-            // Execute the query
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
 
     // return a ArrayList which contains all the movies information
     public ArrayList<Movie> selectImageMovie() {
@@ -181,6 +159,48 @@ public class DataBaseModel {
         return list_room_name;
     }
 
+    public void insertNewSession(Session session) {
+        String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_MOVIE);
+            preparedStatement.setString(1, session.getMovieTitle());
+            preparedStatement.setString(2, session.getRoomName());
+            preparedStatement.setDate(3, session.getSessionDate());
+            preparedStatement.setTime(4, session.getStartTime());
+            preparedStatement.setTime(5, session.getEndTime());
+
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void insertGuest(Guest guest){
+        String INSERT_QUERY_GUEST = "INSERT INTO `guest` (`firstName`, `lastName`, `birthDate`, `email`) VALUES (?, ?, ?, ?)";
+
+
+        // Establishing a Connection
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY_GUEST);
+            preparedStatement.setString(1, guest.getFirstName());
+            preparedStatement.setString(2, guest.getLastName());
+            preparedStatement.setDate(3, guest.getDateOfBirth());
+            preparedStatement.setString(4, guest.getEmail());
+
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+
     public boolean authenticateClient(String email, String password){
         String SQL_QUERY = "SELECT * FROM `customer` WHERE email = '"+ email + "' AND password = '"+ password + "';";
         try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
@@ -198,7 +218,6 @@ public class DataBaseModel {
         }
        return false;
     }
-
     public boolean authenticateEmployee(String email, String password){
         String SQL_QUERY = "SELECT * FROM `employee` WHERE email = '"+ email + "' AND password = '"+ password + "';";
         try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
@@ -215,5 +234,40 @@ public class DataBaseModel {
             System.out.println(e);
         }
        return false;
+    }
+
+    public ObservableList<String> getInformationsMoviesByColumn(String columnLabel) throws SQLException {
+        String SQL_QUERY = "SELECT * FROM `movie` ";
+        ArrayList<String> newArrar = new ArrayList<>();
+        try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_QUERY);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                newArrar.add(rs.getString(columnLabel));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return FXCollections.observableArrayList(newArrar);
+    }
+
+
+    public ObservableList<String> getInformationsMoviesByColumn(String columnLabel, String columnSelected, String parameterChoosed) throws SQLException {
+        String SQL_QUERY = "SELECT * FROM `movie` WHERE " + columnSelected + " = '" + parameterChoosed + "';";
+        ArrayList<String> newArrar = new ArrayList<>();
+        try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_QUERY);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                newArrar.add(rs.getString(columnLabel));
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return FXCollections.observableArrayList(newArrar);
     }
 }
