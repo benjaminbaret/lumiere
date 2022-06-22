@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,6 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.List_movies">
    <children>
@@ -35,6 +37,15 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Pane layoutX="14.0" layoutY="490.0" prefHeight="41.0" prefWidth="183.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <children>
+                        <Label fx:id="userMailLabel" layoutX="21.0" layoutY="10.0" prefHeight="22.0" prefWidth="141.0" style="-fx-background-color: #f9ca24; -fx-background-radius: 5px; -fx-alignment: center;" text="Hello benjamin !" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </left>

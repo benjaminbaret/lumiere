@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -27,7 +28,12 @@ public class List_movies implements Initializable {
     @FXML
     private GridPane grid;
 
+    @FXML
+    private Label userMailLabel;
+
     private List<Movie> list_movie;
+
+
 
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
@@ -98,12 +104,18 @@ public class List_movies implements Initializable {
 
     // load choice screen page
     public void backToHome(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
-        Parent root = addMemberScreenLoader.load();
+        FXMLLoader choiceScreenLoader = new FXMLLoader(getClass().getResource("choice_screen.fxml"));
+        Parent root = choiceScreenLoader.load();
+        ChoiceScreen choiceScreen = choiceScreenLoader.getController();
+        choiceScreen.setHelloLabel(userMailLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setUserMailLabel(String userMailString){
+        userMailLabel.setText(userMailString);
     }
 
 }

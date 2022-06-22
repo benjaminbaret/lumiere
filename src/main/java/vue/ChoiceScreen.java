@@ -25,7 +25,7 @@ public class ChoiceScreen {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
         Parent root = listMoviesLoader.load();
         List_movies list_movies = listMoviesLoader.getController();
-        //list_movies.setHelloLabel(emailTextField.getText()); --> Here to set the field for authentification
+        list_movies.setUserMailLabel(helloLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

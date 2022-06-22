@@ -6,11 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class ChoiceScreenAdmin {
+
+    @FXML
+    public Label emailLabel;
 
 
     // load list movie page
@@ -44,6 +49,10 @@ public class ChoiceScreenAdmin {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setEmailLabel(String emailString){
+        emailLabel.setText(emailString);
     }
 
 }

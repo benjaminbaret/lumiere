@@ -34,7 +34,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Button layoutX="696.0" layoutY="234.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="105.0" style="-fx-background-color: transparent;" textFill="#fff6f6">
+      <Button onAction="#quickBookingButtonClicked" layoutX="696.0" layoutY="234.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="105.0" style="-fx-background-color: transparent;" textFill="#fff6f6">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>

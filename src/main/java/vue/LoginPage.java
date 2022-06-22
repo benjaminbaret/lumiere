@@ -54,6 +54,14 @@ public class LoginPage {
         }
         else{
             if(dataBaseModel.authenticateEmployee(emailTextField.getText(), passwordTextField.getText())){
+                FXMLLoader choiceScreenAdminLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
+                Parent root = choiceScreenAdminLoader.load();
+                ChoiceScreenAdmin choiceScreenAdmin = choiceScreenAdminLoader.getController();
+                choiceScreenAdmin.setEmailLabel(emailTextField.getText());
+                Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
                 authentificationFailedLabel.setVisible(false);
             } else{
                 authentificationFailedLabel.setVisible(true);
