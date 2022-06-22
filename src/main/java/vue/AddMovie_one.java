@@ -104,7 +104,7 @@ public class AddMovie_one {
 
     @FXML
     public void backToListMovie(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("list_movies.fxml"));
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
         Parent root = addMemberScreenLoader.load();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

@@ -11,7 +11,7 @@ public class DataBaseModel {
 
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "";
+    private static final String DATABASE_PASSWORD = "root";
     private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
     private static final String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 

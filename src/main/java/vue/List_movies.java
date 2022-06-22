@@ -95,7 +95,7 @@ public class List_movies implements Initializable {
     }
 
     public void backToHome(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
         Parent root = addMemberScreenLoader.load();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

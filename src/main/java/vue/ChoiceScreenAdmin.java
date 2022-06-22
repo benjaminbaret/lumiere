@@ -12,8 +12,6 @@ import java.io.IOException;
 
 public class ChoiceScreenAdmin {
 
-
-
     @FXML
     public void listMoviesButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
@@ -43,6 +41,5 @@ public class ChoiceScreenAdmin {
         stage.setScene(scene);
         stage.show();
     }
-
 
 }
