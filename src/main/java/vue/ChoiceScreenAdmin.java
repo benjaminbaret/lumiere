@@ -12,6 +12,8 @@ import java.io.IOException;
 
 public class ChoiceScreenAdmin {
 
+
+    // load list movie page
     @FXML
     public void listMoviesButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
@@ -22,6 +24,7 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
+    // load add movie page
     @FXML
     public void addMovieButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader addMovieButtton = new FXMLLoader(getClass().getResource("add_movie_one.fxml"));
@@ -32,6 +35,7 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
+    // load add session page
     @FXML
     public void addSessionButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader addSessionButton = new FXMLLoader(getClass().getResource("add_session.fxml"));

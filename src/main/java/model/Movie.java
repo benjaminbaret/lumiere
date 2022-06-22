@@ -16,8 +16,6 @@ public class Movie {
     private Time duration;
     private String description;
 
-    private String imageSource;
-
     public Movie(String title, String director, String realisator, String genre, String actor, Date releaseDate, InputStream image, Time duration, String description) {
         this.title = title;
         this.director = director;
@@ -66,14 +64,6 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setImageSource(String imageSource) {
-        this.imageSource = imageSource;
-    }
-
-    public String getImageSource() {
-        return imageSource;
     }
 
     public String getTitle() {

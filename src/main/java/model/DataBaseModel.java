@@ -12,10 +12,9 @@ public class DataBaseModel {
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "root";
-    private static final String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
-    private static final String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `birthDate`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
     public void insertRoom(String room_name, int capacity) {
+        String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
 
         // Establishing a Connection
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
@@ -34,6 +33,8 @@ public class DataBaseModel {
     }
 
     public void insertClient(Customer customer){
+
+        String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
 
         // Establishing a Connection
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
@@ -180,8 +181,7 @@ public class DataBaseModel {
     }
 
     public void insertGuest(Guest guest){
-        String INSERT_QUERY_GUEST = "INSERT INTO `guest` (`firstName`, `lastName`, `birthDate`, `email`) VALUES (?, ?, ?, ?)";
-
+        String INSERT_QUERY_GUEST = "INSERT INTO `guest` (`firstName`, `lastName`, `dateOfBirth`, `email`) VALUES (?, ?, ?, ?)";
 
         // Establishing a Connection
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
@@ -253,7 +253,6 @@ public class DataBaseModel {
         return FXCollections.observableArrayList(newArrar);
     }
 
-
     public ObservableList<String> getInformationsMoviesByColumn(String columnLabel, String columnSelected, String parameterChoosed) throws SQLException {
         String SQL_QUERY = "SELECT * FROM `movie` WHERE " + columnSelected + " = '" + parameterChoosed + "';";
         ArrayList<String> newArrar = new ArrayList<>();
@@ -267,7 +266,6 @@ public class DataBaseModel {
         catch (SQLException e){
             System.out.println(e);
         }
-
         return FXCollections.observableArrayList(newArrar);
     }
 }

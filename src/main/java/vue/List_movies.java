@@ -37,29 +37,7 @@ public class List_movies implements Initializable {
         dataBaseModel = new DataBaseModel();
     }
 
-    private List<Movie> list_movie() {
-        List<Movie> lm = new ArrayList<>();
-
-        int size_arrayList = dataBaseModel.selectImageMovie().size();
-
-        for (int i = 0; i< size_arrayList; i++) {
-            Movie movie = new Movie();
-            movie.setTitle(dataBaseModel.selectImageMovie().get(i).getTitle());
-            movie.setReleaseDate(dataBaseModel.selectImageMovie().get(i).getReleaseDate());
-            movie.setDuration(dataBaseModel.selectImageMovie().get(i).getDuration());
-            movie.setImage(dataBaseModel.selectImageMovie().get(i).getImage());
-            movie.setDirector(dataBaseModel.selectImageMovie().get(i).getDirector());
-            movie.setRealisator(dataBaseModel.selectImageMovie().get(i).getRealisator());
-            movie.setGenre(dataBaseModel.selectImageMovie().get(i).getGenre());
-            movie.setDescription(dataBaseModel.selectImageMovie().get(i).getDescription());
-            movie.setActor(dataBaseModel.selectImageMovie().get(i).getActor());
-
-            lm.add(movie);
-        }
-
-        return lm;
-    }
-
+    // initialize the page
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list_movie = new ArrayList<>(list_movie());
@@ -94,6 +72,31 @@ public class List_movies implements Initializable {
         }
     }
 
+    // a method that store all the information of movies into a List
+    private List<Movie> list_movie() {
+        List<Movie> lm = new ArrayList<>();
+
+        int size_arrayList = dataBaseModel.selectImageMovie().size();
+
+        for (int i = 0; i< size_arrayList; i++) {
+            Movie movie = new Movie();
+            movie.setTitle(dataBaseModel.selectImageMovie().get(i).getTitle());
+            movie.setReleaseDate(dataBaseModel.selectImageMovie().get(i).getReleaseDate());
+            movie.setDuration(dataBaseModel.selectImageMovie().get(i).getDuration());
+            movie.setImage(dataBaseModel.selectImageMovie().get(i).getImage());
+            movie.setDirector(dataBaseModel.selectImageMovie().get(i).getDirector());
+            movie.setRealisator(dataBaseModel.selectImageMovie().get(i).getRealisator());
+            movie.setGenre(dataBaseModel.selectImageMovie().get(i).getGenre());
+            movie.setDescription(dataBaseModel.selectImageMovie().get(i).getDescription());
+            movie.setActor(dataBaseModel.selectImageMovie().get(i).getActor());
+
+            lm.add(movie);
+        }
+
+        return lm;
+    }
+
+    // load choice screen page
     public void backToHome(ActionEvent event) throws  IOException {
         FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
         Parent root = addMemberScreenLoader.load();

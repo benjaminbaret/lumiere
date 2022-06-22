@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import model.Customer;
 import model.DataBaseModel;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.Date;
 
@@ -71,8 +70,6 @@ public class RegistrationMember {
             errorDialogPane.setVisible(true);
         }
     }
-
-
 
     @FXML
     private void okButtonClicked(ActionEvent event){

@@ -31,7 +31,6 @@ public class AddSession implements Initializable {
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
-
     @FXML
     private BorderPane sessionAdded;
 
@@ -50,11 +49,13 @@ public class AddSession implements Initializable {
     @FXML
     private LocalTimeTextField startTime_field;
 
+    // constructor
     public AddSession(){
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
     }
 
+    // initialize the window
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initialize ObservableList with the selectTitleMovie methode (which is an ArrayList)
@@ -94,7 +95,6 @@ public class AddSession implements Initializable {
             // // display the window "Session added"
             sessionAdded.setVisible(true);
         }
-
     }
 
     // reset all the data fields
@@ -107,6 +107,7 @@ public class AddSession implements Initializable {
         endTime_field.setLocalTime(null);
     }
 
+    // a button that go to the choice screen admin
     @FXML
     public void backToChoiceAdmin(ActionEvent event) throws  IOException {
         FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
@@ -117,7 +118,7 @@ public class AddSession implements Initializable {
         stage.show();
     }
 
-    // method that checks if the duration is correct, Start > End
+    // [BOOLEAN] method that checks if the duration is correct, Start > End
     @FXML
     public boolean checkTimeDuration() {
         if (Time.valueOf(startTime_field.getLocalTime()).after(Time.valueOf(endTime_field.getLocalTime()))) {
@@ -126,7 +127,7 @@ public class AddSession implements Initializable {
         return true;
     }
 
-    // checks if the date is after the current date
+    // [BOOLEAN] method that checks if the date is after the current date
     @FXML
     public boolean checkDate() {
         return ((Date.valueOf(sessionDate_field.getValue()).toLocalDate().isBefore((LocalDate.now()))));
