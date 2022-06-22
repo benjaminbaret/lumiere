@@ -51,6 +51,8 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
+
+
     public void setEmailLabel(String emailString){
         emailLabel.setText(emailString);
     }

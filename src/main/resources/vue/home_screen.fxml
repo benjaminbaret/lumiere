@@ -8,26 +8,28 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #506FFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.HomeScreen">
    <children>
-      <Button fx:id="loggingUserButton" layoutX="69.0" layoutY="233.0" mnemonicParsing="false" onAction="#loggingUserButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
-      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="88.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="loggingUserButton" layoutX="50.0" layoutY="234.0" mnemonicParsing="false" onAction="#loggingUserButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
+      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="69.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/login.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="94.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login user" />
-      <Button fx:id="loggingEmployeeButton" layoutX="447.0" layoutY="234.0" mnemonicParsing="false" onAction="#loggingEmployeeButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
-      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="466.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <Text fill="WHITE" layoutX="75.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login user" />
+      <Button fx:id="loggingEmployeeButton" layoutX="302.0" layoutY="233.0" mnemonicParsing="false" onAction="#loggingEmployeeButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
+      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="321.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/login.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="458.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Employee" />
-      <Button fx:id="addMemberButton" layoutX="783.0" layoutY="242.0" mnemonicParsing="false" onAction="#addMemberButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
-      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="802.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+      <Text fill="WHITE" layoutX="313.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Employee" />
+      <Button fx:id="addMemberButton" layoutX="548.0" layoutY="233.0" mnemonicParsing="false" onAction="#addMemberButtonClicked" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
+      <ImageView disable="true" fitHeight="68.0" fitWidth="82.0" focusTraversable="true" layoutX="567.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/addMember.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="808.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add member" />
+      <Text fill="WHITE" layoutX="573.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add member" />
+      <Button fx:id="buttonNoAccount" layoutX="768.0" layoutY="233.0" mnemonicParsing="false" onAction="#buttonNoAccountClick" prefHeight="99.0" prefWidth="106.0" style="-fx-background-radius: 100; -fx-background-color: white;" textFill="WHITE" textOverrun="CLIP" />
+      <Text fill="WHITE" layoutX="767.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Buy without account" />
    </children>
 </AnchorPane>
