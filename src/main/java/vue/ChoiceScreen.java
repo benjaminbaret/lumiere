@@ -32,11 +32,22 @@ public class ChoiceScreen {
         stage.show();
     }
 
-    @FXML void quickBookingButtonClicked(ActionEvent event) throws IOException {
+    @FXML
+    public void quickBookingButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader filmeSearchLoader = new FXMLLoader(getClass().getResource("film_research.fxml"));
         Parent root = filmeSearchLoader.load();
         FilmResearch filmResearch = filmeSearchLoader.getController();
         //filmResearch.setHelloLabel(emailTextField.getText()); --> Here to set the field for authentification
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void backToHomeScreen(ActionEvent event) throws IOException {
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        Parent root = addMemberScreenLoader.load();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

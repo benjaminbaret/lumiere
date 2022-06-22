@@ -81,5 +81,17 @@
             <Font size="17.0" />
          </font>
       </Text>
+      <Button layoutX="64.0" layoutY="64.0" mnemonicParsing="false" onAction="#backToHomeScreen" prefHeight="34.0" prefWidth="54.0" style="-fx-background-color: transparent;" textFill="#fff6f6">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="84.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/cross-button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

@@ -55,4 +55,14 @@ public class ChoiceScreenAdmin {
         emailLabel.setText(emailString);
     }
 
+    @FXML
+    public void backToHomeScreen(ActionEvent event) throws IOException {
+        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
+        Parent root = addMemberScreenLoader.load();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
