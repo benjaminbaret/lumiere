@@ -13,7 +13,8 @@ public class MainVue extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("buy_without_account.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("seat.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("add_session.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("choice_screen_admin.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("choice_screen_admin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("film_research.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("BOUTON TEST!");
         stage.setScene(scene);

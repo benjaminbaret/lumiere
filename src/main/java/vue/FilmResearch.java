@@ -5,63 +5,58 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import model.DataBaseModel;
 
-import java.awt.*;
 import java.io.IOException;
-import java.sql.Array;
-import java.sql.ResultSet;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class FilmResearch {
+public class FilmResearch implements Initializable {
 
+    AssertFields assertFields;
     DataBaseModel dataBaseModel;
     @FXML
-    private ComboBox filmChoiceBox;
+    private ComboBox<String> filmChoiceBox;
     @FXML
-    private ComboBox dateComboBox;
+    private ComboBox<String> dateComboBox;
     @FXML
-    private ComboBox timeComboBox;
+    private ComboBox<String> timeComboBox;
+
+    public FilmResearch(){
+        assertFields = new AssertFields();
+        dataBaseModel = new DataBaseModel();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // initialize ObservableList with the selectTitleMovie methode (which is an ArrayList)
+        ObservableList<String> obListOfTitleMovie = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectTitleMovieFromSession()));
+        // set items from obList
+        filmChoiceBox.setItems(obListOfTitleMovie);
+    }
 
     @FXML
-    private void actionChoiceDoneFilm() throws SQLException {
-        if(filmChoiceBox.getValue() != null){
-            if (dateComboBox.getValue() == null) {
-                dateComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("releaseDate", "title", filmChoiceBox.getValue().toString()));
-            } else if (timeComboBox.getValue() == null) {
-                timeComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("duration", "title", filmChoiceBox.getValue().toString()));
-            }
+    private void actionChoiceDoneTime() {
+        if (dateComboBox.getValue() != null) {
+            ObservableList<String> obListOfSessionTime = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionTime(filmChoiceBox.getValue())));
+            timeComboBox.setItems(obListOfSessionTime);
         }
     }
 
     @FXML
-    private void actionChoiceDoneTime() throws SQLException {
-        if(timeComboBox.getValue() != null){
-            if (filmChoiceBox.getValue() == null) {
-                filmChoiceBox.setItems(dataBaseModel.getInformationsMoviesByColumn("title", "duration", timeComboBox.getValue().toString()));
-            } else if (dateComboBox.getValue() == null) {
-                dateComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("releaseDate", "duration", timeComboBox.getValue().toString()));
-            }
+    private void actionChoiceDoneDate() {
+        if (timeComboBox.getValue() == null) {
+            ObservableList<String> obListOfSessionDate = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionDate(filmChoiceBox.getValue())));
+            dateComboBox.setItems(obListOfSessionDate);
         }
-    }
-
-    @FXML
-    private void actionChoiceDoneDate() throws SQLException {
-        if(dateComboBox.getValue() != null){
-            if (filmChoiceBox.getValue() == null) {
-                filmChoiceBox.setItems(dataBaseModel.getInformationsMoviesByColumn("title", "releaseDate", dateComboBox.getValue().toString()));
-            } else if (timeComboBox.getValue() == null) {
-                timeComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("duration", "releaseDate", dateComboBox.getValue().toString()));
-            }
-        }
-
     }
 
     @FXML

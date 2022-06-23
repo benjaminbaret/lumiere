@@ -31,9 +31,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <ComboBox fx:id="filmChoiceBox" onAction="#actionChoiceDoneFilm" prefHeight="35.0" prefWidth="240.0" promptText="Title" style="-fx-background-color: white;" />
-                        <ComboBox fx:id="dateComboBox" onAction="#actionChoiceDoneDate" prefHeight="35.0" prefWidth="240.0" promptText="Release date" style="-fx-background-color: white;" />
-                        <ComboBox fx:id="timeComboBox" onAction="#actionChoiceDoneTime" prefHeight="35.0" prefWidth="240.0" promptText="Duration" style="-fx-background-color: white;" />
+                        <ComboBox fx:id="filmChoiceBox" prefHeight="35.0" prefWidth="240.0" promptText="Title" style="-fx-background-color: white;" />
+                        <ComboBox fx:id="dateComboBox" onMouseClicked="#actionChoiceDoneDate" prefHeight="35.0" prefWidth="240.0" promptText="Session date" style="-fx-background-color: white;" />
+                        <ComboBox fx:id="timeComboBox" onMouseClicked="#actionChoiceDoneTime" prefHeight="35.0" prefWidth="240.0" promptText="Duration" style="-fx-background-color: white;" />
                         <Button mnemonicParsing="false" onAction="#buttonEraseClicked" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #506FFF;" text="QUICK BOOK" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />

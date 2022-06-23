@@ -268,4 +268,88 @@ public class DataBaseModel {
         }
         return FXCollections.observableArrayList(newArrar);
     }
+
+    // select an information from a session
+    public ArrayList<String> getInformationFromSession(String columnLabel) {
+        ArrayList<String> list_session = new ArrayList<>();
+
+        String SELECT_QUERY_SESSION = "SELECT `" + columnLabel + "`FROM session;";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY_SESSION);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                list_session.add(rs.getString(1));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list_session;
+    }
+
+    // select all the title movie from session
+    public ArrayList<String> selectTitleMovieFromSession() {
+        ArrayList<String> list_title_movies = new ArrayList<>();
+
+        String SELECT_TITLE_QUERY_SESSION = "SELECT DISTINCT movieTitle FROM session;";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TITLE_QUERY_SESSION);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                list_title_movies.add(rs.getString(1));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list_title_movies;
+    }
+
+    // select the session date from session
+    public ArrayList<String> selectSessionDate(String titleOfTheMovie) {
+        ArrayList<String> list_session_date = new ArrayList<>();
+
+        String SELECT_SESSIONDATE_QUERY_SESSION = "SELECT sessionDate FROM `session` WHERE movieTitle ='" + titleOfTheMovie + "';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SESSIONDATE_QUERY_SESSION);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                list_session_date.add(rs.getDate(1).toString());
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list_session_date;
+    }
+
+    // select the session date time from session
+    public ArrayList<String> selectSessionTime(String titleOfTheMovie) {
+        ArrayList<String> list_date_time = new ArrayList<>();
+
+        String SELECT_SESSIONDATE_QUERY_SESSION = "SELECT startTime, endTime FROM `session` WHERE movieTitle ='" + titleOfTheMovie + "';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SESSIONDATE_QUERY_SESSION);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                list_date_time.add(rs.getTime(1).toString() + " - " + rs.getTime(2).toString());
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list_date_time;
+    }
 }
