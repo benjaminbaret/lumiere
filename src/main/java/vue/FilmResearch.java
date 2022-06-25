@@ -34,7 +34,6 @@ public class FilmResearch implements Initializable {
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initialize ObservableList with the selectTitleMovie methode (which is an ArrayList)

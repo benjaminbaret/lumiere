@@ -2,8 +2,6 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -352,4 +350,63 @@ public class DataBaseModel {
         }
         return list_date_time;
     }
+
+    public int selectNumberPlaceSession(String movieTitle, String roomName, Date sessionDate) {
+        int numberplace = 0;
+
+        String SELECT_TITLE_QUERY_MOVIE = "SELECT placeLeft FROM `session` WHERE movieTitle ='"+movieTitle+ "' AND roomName = '"+roomName+"' AND sessionDate ='"+sessionDate+ "';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TITLE_QUERY_MOVIE);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                numberplace=  rs.getInt(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return numberplace;
+    }
+
+    public String selectRoomNameSession(String movieTile, String sessionDate) {
+        String roomName="";
+        Date date = Date.valueOf(sessionDate);
+
+        String SELECT_TITLE_QUERY_MOVIE = "SELECT roomName FROM `session` WHERE movieTitle ='"+movieTile+
+                "' AND sessionDate ='"+date+"';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TITLE_QUERY_MOVIE);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                roomName=  rs.getString(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return roomName;
+    }
+
+    public void updatePlaceSession(String movieTitle, String roomName, String sessionDate, int placeNumber) {
+        int place = selectNumberPlaceSession(movieTitle,roomName, Date.valueOf(sessionDate));
+        String UPDATE_QUERY_SESSION = "UPDATE `session` SET `placeLeft`='"+(placeNumber+place)+"' WHERE `movieTitle`='"+movieTitle+"' AND `roomName`='"+roomName+"' AND `sessionDate`='"+sessionDate+"';";
+
+        // Establishing a Connection
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY_SESSION);
+            // Execute the query
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
 }

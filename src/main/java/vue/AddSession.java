@@ -39,13 +39,10 @@ public class AddSession implements Initializable {
 
     @FXML
     private ComboBox<String> roomName_choice;
-
     @FXML
     private LocalTimeTextField endTime_field;
-
     @FXML
     private DatePicker sessionDate_field;
-
     @FXML
     private LocalTimeTextField startTime_field;
 
@@ -68,8 +65,6 @@ public class AddSession implements Initializable {
         // set items from obList
         roomName_choice.setItems(obListOfRoomName);
     }
-
-
 
     // add a session to the database
     @FXML

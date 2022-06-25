@@ -14,9 +14,11 @@ public class MainVue extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("seat.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("add_session.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("choice_screen_admin.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("film_research.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("film_research.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("quick_booking.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("home_screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
-        stage.setTitle("BOUTON TEST!");
+        stage.setTitle("Home screen");
         stage.setScene(scene);
         stage.show();
     }

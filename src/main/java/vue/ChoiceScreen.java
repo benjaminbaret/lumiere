@@ -30,13 +30,12 @@ public class ChoiceScreen {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+     }
 
     @FXML
     public void quickBookingButtonClicked(ActionEvent event) throws IOException {
-        FXMLLoader filmeSearchLoader = new FXMLLoader(getClass().getResource("film_research.fxml"));
-        Parent root = filmeSearchLoader.load();
-        FilmResearch filmResearch = filmeSearchLoader.getController();
+        FXMLLoader quickBooking = new FXMLLoader(getClass().getResource("quick_booking.fxml"));
+        Parent root = quickBooking.load();
         //filmResearch.setHelloLabel(emailTextField.getText()); --> Here to set the field for authentification
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
