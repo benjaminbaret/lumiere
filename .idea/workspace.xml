@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="- new SQL file">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MainVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MovieTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MovieTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/add_movie_one.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/add_movie_one.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/add_session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/add_session.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/buy_account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/buy_account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/buy_without_account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/buy_without_account.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/choice_screen_admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/choice_screen_admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/film_research.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/film_research.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/home_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/home_screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/list_movies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/list_movies.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/login_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/login_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/registration_member.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/registration_member.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/seat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/seat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/template_movie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/template_movie.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2B6w5EdQDjl4oJBZtTZV8YtBtbR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.37356323"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="vue.MainVue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="vue.MainVue" />
+      <module name="lum" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\afram\Downloads\openjfx-18.0.1_windows-x64_bin-sdk\javafx-sdk-18.0.1\lib --add-modules=javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.vue.MainVue" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="" />
+      <created>1656239664779</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656239664779</updated>
+    </task>
+    <task id="LOCAL-00001" summary="- new SQL file">
+      <created>1656240799481</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656240799481</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- new SQL file" />
+    <option name="LAST_COMMIT_MESSAGE" value="- new SQL file" />
+  </component>
+</project>

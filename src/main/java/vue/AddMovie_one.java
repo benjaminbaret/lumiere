@@ -12,18 +12,18 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.*;
-
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jfxtras.scene.control.LocalTimeTextField;
 import model.DataBaseModel;
 import model.Movie;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Date;
+import java.sql.Time;
 
 public class AddMovie_one {
 
