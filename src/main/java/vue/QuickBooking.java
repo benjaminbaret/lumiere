@@ -86,6 +86,9 @@ public class QuickBooking extends Application implements Initializable {
     @FXML
     private TextField emailAdress;
 
+    @FXML
+    private Label priceTicket;
+
     private final ObservableList<String> numberOfPlace = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
 
     int count;
@@ -101,7 +104,6 @@ public class QuickBooking extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws Exception {
-        System.out.println("test");
     }
 
     @Override
@@ -155,6 +157,12 @@ public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private void actionChoiceDoneFilm(){
+        for (int i = 0; i < dateComboBox.getItems().size(); i++) {
+            dateComboBox.getItems().remove(i);
+        }
+        for (int i = 0; i < timeComboBox.getItems().size(); i++) {
+            timeComboBox.getItems().remove(i);
+        }
         ObservableList<String> obListOfSessionDate = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionDate(filmChoiceBox.getValue())));
         ObservableList<String> obListOfSessionTime = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionTime(filmChoiceBox.getValue())));
         dateComboBox.setItems(obListOfSessionDate);
@@ -175,9 +183,11 @@ public class QuickBooking extends Application implements Initializable {
         for (int i = 0; i < timeComboBox.getItems().size(); i++) {
             timeComboBox.getItems().remove(i);
         }
-        filmChoiceBox.setItems(dataBaseModel.getInformationsMoviesByColumn("title"));
+        ObservableList<String> obListOfTitleMovie = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectTitleMovieFromSession()));
         dateComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("releaseDate"));
         timeComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("duration"));
+        filmChoiceBox.setItems(obListOfTitleMovie);
+        numberPlace.setItems(numberOfPlace);
     }
 
     @FXML
@@ -221,6 +231,11 @@ public class QuickBooking extends Application implements Initializable {
                 dateConfirmation.setText("Date : " + dateComboBox.getValue());
                 timeConfirmation.setText("Time : " + timeComboBox.getValue());
                 numberOfTicketConfirmation.setText("Number of place : " + numberPlace.getValue());
+                if(!Objects.equals(emailLogged, "No account")){
+                    priceTicket.setText("Price : 7£");
+                }else{
+                    priceTicket.setText("Price : 10£");
+                }
 
                 if (!Objects.equals(emailLogged, "No account")) {
                     firstName.setText(dataBaseModel.getFirstName(emailLogged));
@@ -232,12 +247,8 @@ public class QuickBooking extends Application implements Initializable {
     }
 
     @FXML
-    private void confirmButton(ActionEvent event) throws Exception {
+    private void confirmButton(ActionEvent event) {
         thirdPage.setVisible(true);
-//            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
-//            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
-//                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
-        // confirmationDone();
     }
 
     @FXML
@@ -252,7 +263,9 @@ public class QuickBooking extends Application implements Initializable {
     }
 
     @FXML
-    private void confirmationDone(ActionEvent event) {
+    private void confirmationDone(ActionEvent event) throws Exception  {
+        String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
+
         if (assertFields.isCardCodeValid(cardNumberField.getText()) &&
                 assertFields.isMounthValid(mounthCardField.getText()) &&
                 assertFields.isYearValid(yearMounthCard.getText()) &&
@@ -264,6 +277,9 @@ public class QuickBooking extends Application implements Initializable {
                 fifthPage.setVisible(true);
             });
             wait.play();
+            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
+            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
+                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("WRONG NUMBER");

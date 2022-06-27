@@ -181,7 +181,7 @@ public class DataBaseModel {
      * @return void
      */
     public void insertNewSession(Session session) {
-        String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`) VALUES (?, ?, ?, ?, ?)";
+        String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`, `placeLeft`) VALUES (?, ?, ?, ?, ?, 0)";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
 
@@ -333,7 +333,6 @@ public class DataBaseModel {
         String SELECT_QUERY_SESSION = "SELECT `" + columnLabel + "`FROM session;";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
-
             // Create a statement
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY_SESSION);
             ResultSet rs = preparedStatement.executeQuery();
@@ -342,6 +341,7 @@ public class DataBaseModel {
             }
             rs.close();
         } catch (SQLException e) {
+
             System.out.println(e);
         }
         return list_session;

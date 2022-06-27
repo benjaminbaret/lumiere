@@ -23,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -111,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656337307789</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;">
+      <created>1656339379765</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656339379765</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +138,7 @@
     <MESSAGE value="- stable version (I hope)" />
     <MESSAGE value="- (re)add eimail field in customer" />
     <MESSAGE value="Cookie setting for employee OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cookie setting for employee OK" />
+    <MESSAGE value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
   </component>
 </project>
