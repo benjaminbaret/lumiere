@@ -14,10 +14,10 @@ import java.io.IOException;
 public class ChoiceScreen {
 
     @FXML
-    private Label helloLabel;
+    private Label emailLabel;
 
     public void setHelloLabel(String labelString){
-        helloLabel.setText(labelString);
+        emailLabel.setText(labelString);
     }
 
     @FXML
@@ -25,7 +25,7 @@ public class ChoiceScreen {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
         Parent root = listMoviesLoader.load();
         List_movies list_movies = listMoviesLoader.getController();
-        list_movies.setUserMailLabel(helloLabel.getText());
+        list_movies.setUserMailLabel(emailLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -34,8 +34,10 @@ public class ChoiceScreen {
 
     @FXML
     public void quickBookingButtonClicked(ActionEvent event) throws IOException {
-        FXMLLoader quickBooking = new FXMLLoader(getClass().getResource("quick_booking.fxml"));
-        Parent root = quickBooking.load();
+        FXMLLoader quickBookingLoader = new FXMLLoader(getClass().getResource("quick_booking.fxml"));
+        Parent root = quickBookingLoader.load();
+        QuickBooking quickBookingController = quickBookingLoader.getController();
+        quickBookingController.setEmailLogged(emailLabel.getText());
         //filmResearch.setHelloLabel(emailTextField.getText()); --> Here to set the field for authentification
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

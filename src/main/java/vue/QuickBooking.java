@@ -27,6 +27,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class QuickBooking extends Application implements Initializable {
@@ -80,12 +81,16 @@ public class QuickBooking extends Application implements Initializable {
     private TextField firstName;
 
     @FXML
+    private TextField lastName;
+
+    @FXML
     private TextField emailAdress;
 
     private final ObservableList<String> numberOfPlace = FXCollections.observableArrayList("1","2","3","4","5","6","7","8");
 
     int count;
 
+    public String emailLogged;
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
@@ -120,8 +125,8 @@ public class QuickBooking extends Application implements Initializable {
 
     public void slideshow(){
         ArrayList<Image> images =new ArrayList<>();
-        images.add(new Image("C:\\Users\\afram\\IdeaProjects\\lumiere\\src\\main\\resources\\img\\interstellar-slide.jpg"));
-        images.add(new Image("C:\\Users\\afram\\IdeaProjects\\lumiere\\src\\main\\resources\\img\\star-wars-slide.jpg"));
+        images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\interstellar-slide.jpg"));
+        images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\star-wars-slide.jpg"));
 
         Timeline timeline=new Timeline(new KeyFrame(Duration.seconds(5), event->{
             imageView.setImage(images.get(count));
@@ -167,8 +172,10 @@ public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private void backToChoiceButton(ActionEvent event) throws IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
-        Parent root = addMemberScreenLoader.load();
+        FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
+        Parent root = choiceScreenLoader.load();
+        ChoiceScreen choiceScreenController = choiceScreenLoader.getController();
+        choiceScreenController.setHelloLabel(emailLogged);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -202,6 +209,12 @@ public class QuickBooking extends Application implements Initializable {
             dateConfirmation.setText("Date : " + dateComboBox.getValue());
             timeConfirmation.setText("Time : " + timeComboBox.getValue());
             numberOfTicketConfirmation.setText("Number of place : " + numberPlace.getValue());
+
+            if(!Objects.equals(emailLogged, "No account")){
+                firstName.setText(dataBaseModel.getFirstName(emailLogged));
+                lastName.setText(dataBaseModel.getLastName(emailLogged));
+                emailAdress.setText(emailLogged);
+            }
         }
     }
 
@@ -250,5 +263,9 @@ public class QuickBooking extends Application implements Initializable {
     @FXML
     private void paymentConfirmation() {
         fourthPage.setVisible(true);
+    }
+
+    public void setEmailLogged(String email){
+        emailLogged = email;
     }
 }

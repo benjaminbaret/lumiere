@@ -413,4 +413,50 @@ public class DataBaseModel {
         }
     }
 
+    public String getFirstName(String emailAdress){
+        String firstName="";
+
+        String SQL_QUERY_FIRST_NAME = "SELECT firstName FROM customer WHERE email='" + emailAdress + "';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_QUERY_FIRST_NAME);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                firstName=  rs.getString(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        catch (Exception e) {
+            System.out.println("Wrong value");
+        }
+        return firstName;
+    }
+
+    public String getLastName(String emailAdress){
+        String lastName="";
+
+        String SQL_QUERY_FIRST_NAME = "SELECT lastName FROM customer WHERE email='" + emailAdress + "';";
+
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
+
+            // Create a statement
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_QUERY_FIRST_NAME);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                lastName=  rs.getString(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        catch (Exception e) {
+            System.out.println("Wrong value");
+        }
+        return lastName;
+    }
+
 }

@@ -23,7 +23,7 @@
       </Button>
       <Pane layoutX="368.0" layoutY="55.0" prefHeight="62.0" prefWidth="263.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <children>
-            <Label id="helloLabel" fx:id="helloLabel" layoutX="35.0" layoutY="14.0" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #f9ca24; -fx-background-radius: 5px; -fx-alignment: center;" text="Hello benjamin !" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="emailLabel" layoutX="35.0" layoutY="14.0" prefHeight="34.0" prefWidth="194.0" style="-fx-background-color: #f9ca24; -fx-background-radius: 5px; -fx-alignment: center;" text="Hello benjamin !" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="23.0" />
                </font>
