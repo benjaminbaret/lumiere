@@ -78,6 +78,10 @@ public class List_movies implements Initializable {
         }
     }
 
+    /**
+     * store all the information of movies into a List
+     * @return List<Movie>
+     */
     // a method that store all the information of movies into a List
     private List<Movie> list_movie() {
         List<Movie> lm = new ArrayList<>();
@@ -102,6 +106,11 @@ public class List_movies implements Initializable {
         return lm;
     }
 
+    /**
+     * load choice screen page
+     * @param event
+     * @throws IOException
+     */
     // load choice screen page
     public void backToHome(ActionEvent event) throws  IOException {
         if(isEmployee){

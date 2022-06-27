@@ -39,6 +39,10 @@ public class MovieTemplate {
     @FXML
     private Label titleMovieField;
 
+    /**
+     * set the data with movie's fields
+     * @param movie Movie
+     */
     public void setData(Movie movie) {
 
         Image image = new Image(movie.getImage());

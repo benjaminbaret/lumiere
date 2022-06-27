@@ -126,8 +126,8 @@ public class QuickBooking extends Application implements Initializable {
 
     public void slideshow() {
         ArrayList<Image> images = new ArrayList<>();
-        images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\interstellar-slide.jpg"));
-        images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\star-wars-slide.jpg"));
+        images.add(new Image("C:\\Users\\afram\\IdeaProjects\\lumiere\\src\\main\\resources\\img\\interstellar-slide.jpg"));
+        images.add(new Image("C:\\Users\\afram\\IdeaProjects\\lumiere\\src\\main\\resources\\img\\star-wars-slide.jpg"));
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
             imageView.setImage(images.get(count));

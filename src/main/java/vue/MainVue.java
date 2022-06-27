@@ -7,16 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * main class, run the application
+ */
 public class MainVue extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("add_movie_one.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("buy_without_account.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("seat.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("add_session.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("choice_screen_admin.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("film_research.fxml"));
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("quick_booking.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader(MainVue.class.getResource("home_screen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("Home screen");

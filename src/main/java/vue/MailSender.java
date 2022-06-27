@@ -9,16 +9,28 @@ import java.util.logging.Logger;
 
 public class MailSender {
 
+    /**
+     * @param recepient
+     * @param firstName first name of the user
+     * @param movieTitle last name of the user
+     * @param roomName room name
+     * @param dateSession date session
+     * @param startTime start time of the session
+     * @param numberOfTicket number of ticket
+     * @throws Exception
+     */
     public static void sendMail(String recepient, String firstName, String movieTitle, String roomName,
                                 String dateSession, String startTime, String numberOfTicket)throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 
+        // properties of the mail
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "outlook.office365.com");
         properties.put("mail.smtp.port", "587");
 
+        // email adress sender
         String myAccountEmail = "benjaminafram@outlook.fr";
         String password = "lomep@le";
 
@@ -34,6 +46,18 @@ public class MailSender {
         System.out.println("Message sent !");
     }
 
+    /**
+     * @param session the Session
+     * @param myAccountEmail email adress
+     * @param recepient recipient
+     * @param firstName first name of the user
+     * @param movieTitle title of the movie
+     * @param roomName room name
+     * @param dateSession date session
+     * @param startTime start time
+     * @param numberOfTicket number of tickets
+     * @return
+     */
     private static Message prepareMessage(Session session,String myAccountEmail, String recepient,
                                           String firstName, String movieTitle, String roomName,
                                           String dateSession, String startTime, String numberOfTicket) {

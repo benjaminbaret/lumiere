@@ -41,8 +41,6 @@ public class RegistrationMember {
     @FXML
     private DialogPane errorDialogPane;
 
-
-
     public RegistrationMember(){
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
@@ -50,8 +48,14 @@ public class RegistrationMember {
         loginMemberLoader = new FXMLLoader(getClass().getResource("login_page.fxml"));
     }
 
+    /**
+     * add customer into the data base and load the login page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void handleContinueButtonAction(ActionEvent event) throws IOException {
+        // check if the phone number and the email adress is correct
         if(assertFields.isPhoneTextFieldValid(phoneNumberField.getText()) &&
                 assertFields.isEmailAddressTextFieldValid(emailField.getText()))
         {
@@ -73,11 +77,20 @@ public class RegistrationMember {
         }
     }
 
+    /**
+     * show error dialog pane
+     * @param event
+     */
     @FXML
     private void okButtonClicked(ActionEvent event){
         errorDialogPane.setVisible(false);
     }
 
+    /**
+     * load the home screen page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void quitButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader homeScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));
