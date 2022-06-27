@@ -30,12 +30,21 @@ public class AddMovie_one {
     // all the movie genres
     ObservableList<String> genreListMove = FXCollections.observableArrayList("Drama","Thriller","Action","Comedy","Fantasy","Horror","Mystery","Romance","Western","Animation","Comedy","Crime","Historical","Horror","Science fiction","Other");
 
+    /**
+     * Genre of the movie
+     */
     @FXML
     //genre of the movie
     private ComboBox<String> movieGenre_choice;
+    /**
+     * movie name field
+     */
     @FXML
     //title of the movie
     private TextField movieName_field;
+    /**
+     *
+     */
     @FXML
     //duration of the movie
     private LocalTimeTextField movieDuration_field;
@@ -99,11 +108,21 @@ public class AddMovie_one {
         }
     }
 
+    /**
+     * back to the previous page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void previousPage(ActionEvent event) throws IOException {
         secondWindow.setVisible(false);
     }
 
+    /**
+     * Load the choice screen admin page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void backToListMovie(ActionEvent event) throws  IOException {
         FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
@@ -116,6 +135,11 @@ public class AddMovie_one {
         stage.show();
     }
 
+    /**
+     * allow the user to choose and upload an image
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void uploadImage(ActionEvent event) throws IOException {
         FileChooser fc =new FileChooser();
@@ -127,6 +151,11 @@ public class AddMovie_one {
         this.imageMovie = fileInputStream;
     }
 
+    /**
+     * add movie button
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void addMovieButton(ActionEvent event) throws IOException{
         Movie movie = new Movie(movieName_field.getText(), movieDirector_field.getText(),
@@ -139,7 +168,11 @@ public class AddMovie_one {
         // display the window "the movie has been added"
         thirdWindow.setVisible(true);
     }
-    
+
+    /**
+     * set the employee adress email
+     * @param email email of the employee
+     */
     public void setEmailEmployee(String email){
         emailEmployee = email;
     }

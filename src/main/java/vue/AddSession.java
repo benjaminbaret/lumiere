@@ -55,6 +55,11 @@ public class AddSession implements Initializable {
         dataBaseModel = new DataBaseModel();
     }
 
+    /**
+     * initialize the window
+     * @param url
+     * @param rb
+     */
     // initialize the window
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,9 +74,15 @@ public class AddSession implements Initializable {
         roomName_choice.setItems(obListOfRoomName);
     }
 
+    /**
+     * add the session
+     * @param event
+     * @throws IOException
+     */
     // add a session to the database
     @FXML
     private void addSessionButton(ActionEvent event) throws IOException {
+        // check if the time is correct
         if (!(checkTimeDuration())) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("TIME WRONG");
@@ -85,16 +96,23 @@ public class AddSession implements Initializable {
             alert.showAndWait();
         }
         else {
+            // create new session
             Session session = new Session(movieName_choice.getValue(), roomName_choice.getValue(),
                     Date.valueOf(sessionDate_field.getValue()), Time.valueOf(startTime_field.getLocalTime()),
                     Time.valueOf(endTime_field.getLocalTime()));
+            // add the session into the database
             dataBaseModel.insertNewSession(session);
 
-            // // display the window "Session added"
+            // display the window "Session added"
             sessionAdded.setVisible(true);
         }
     }
 
+    /**
+     * reset all the data fields
+     * @param event
+     * @throws IOException
+     */
     // reset all the data fields
     @FXML
     private void resetButton(ActionEvent event) throws IOException {
@@ -105,6 +123,11 @@ public class AddSession implements Initializable {
         endTime_field.setLocalTime(null);
     }
 
+    /**
+     * load the choice screen admin page
+     * @param event
+     * @throws IOException
+     */
     // a button that go to the choice screen admin
     @FXML
     public void backToChoiceAdmin(ActionEvent event) throws  IOException {
@@ -118,6 +141,10 @@ public class AddSession implements Initializable {
         stage.show();
     }
 
+    /**
+     * checks if the duration is correct, Start > End
+     * @return boolean
+     */
     // [BOOLEAN] method that checks if the duration is correct, Start > End
     @FXML
     public boolean checkTimeDuration() {
@@ -127,12 +154,20 @@ public class AddSession implements Initializable {
         return true;
     }
 
+    /**
+     * checks if the date is after the current date
+     * @return boolean
+     */
     // [BOOLEAN] method that checks if the date is after the current date
     @FXML
     public boolean checkDate() {
         return ((Date.valueOf(sessionDate_field.getValue()).toLocalDate().isBefore((LocalDate.now()))));
     }
 
+    /**
+     * set the email of the employee
+     * @param email adress mail of the employee
+     */
     public void setEmailEmployee(String email){
         emailEmployee = email;
     }

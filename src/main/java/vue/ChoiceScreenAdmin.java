@@ -17,6 +17,11 @@ public class ChoiceScreenAdmin {
     public Label emailLabel;
 
 
+    /**
+     * load the list movies page
+     * @param event
+     * @throws IOException
+     */
     // load list movie page
     @FXML
     public void listMoviesButtonClicked(ActionEvent event) throws IOException {
@@ -31,6 +36,10 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
+    /** load the add movie page
+     * @param event
+     * @throws IOException
+     */
     // load add movie page
     @FXML
     public void addMovieButtonClicked(ActionEvent event) throws IOException {
@@ -44,6 +53,11 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
+    /**
+     * load the add session page
+     * @param event
+     * @throws IOException
+     */
     // load add session page
     @FXML
     public void addSessionButtonClicked(ActionEvent event) throws IOException {
@@ -57,12 +71,15 @@ public class ChoiceScreenAdmin {
         stage.show();
     }
 
-
-
     public void setEmailLabel(String emailString){
         emailLabel.setText(emailString);
     }
 
+    /**
+     * load the home screen page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void backToHomeScreen(ActionEvent event) throws IOException {
         FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));

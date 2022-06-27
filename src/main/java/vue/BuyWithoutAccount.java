@@ -34,6 +34,11 @@ public class BuyWithoutAccount {
         dataBaseModel = new DataBaseModel();
     }
 
+    /**
+     * add the guest into the database
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void addGuestButton(ActionEvent event) throws IOException {
         // check if the person is major
@@ -55,6 +60,10 @@ public class BuyWithoutAccount {
         }
     }
 
+    /**
+     * check if the user is major
+     * @return boolean
+     */
     // method that checks if the buyer is > 18
     @FXML
     private boolean checkMajorPerson() {
