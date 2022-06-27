@@ -41,8 +41,6 @@ public class RegistrationMember {
     @FXML
     private DialogPane errorDialogPane;
 
-
-
     public RegistrationMember(){
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
