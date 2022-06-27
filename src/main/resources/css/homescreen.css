@@ -1,0 +1,12 @@
+#loggingUserButton:hover {
+    -fx-effect:dropshadow(three-pass-box, black, 10, 0, 0, 3);
+}
+#loggingEmployeeButton:hover {
+    -fx-effect:dropshadow(three-pass-box, black, 10, 0, 0, 3);
+}
+#addMemberButton:hover {
+    -fx-effect:dropshadow(three-pass-box, black, 10, 0, 0, 3);
+}
+#buttonNoAccount:hover {
+    -fx-effect:dropshadow(three-pass-box, black, 10, 0, 0, 3);
+}

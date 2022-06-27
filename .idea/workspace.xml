@@ -4,34 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="- new SQL file">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+    <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="- (re)add eimail field in customer">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/homescreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MainVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/MovieTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MovieTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/add_movie_one.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/add_movie_one.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/add_session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/add_session.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/buy_account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/buy_account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/buy_without_account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/buy_without_account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/choice_screen_admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/choice_screen_admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/film_research.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/film_research.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/AssertFields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/AssertFields.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vue/home_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/home_screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/list_movies.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/list_movies.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/login_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/login_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/img/addMember.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/img/basket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/img/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/img/movie.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/registration_member.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/registration_member.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/seat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/seat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/template_movie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/template_movie.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,9 +53,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-18",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37356323"
+    "project.structure.side.proportion": "0.37356323",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RunManager">
@@ -113,7 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656240799481</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- stable version (I hope)">
+      <created>1656253176028</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656253176028</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- (re)add eimail field in customer">
+      <created>1656253222403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656253222403</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,6 +128,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- new SQL file" />
-    <option name="LAST_COMMIT_MESSAGE" value="- new SQL file" />
+    <MESSAGE value="- stable version (I hope)" />
+    <MESSAGE value="- (re)add eimail field in customer" />
+    <option name="LAST_COMMIT_MESSAGE" value="- (re)add eimail field in customer" />
   </component>
 </project>

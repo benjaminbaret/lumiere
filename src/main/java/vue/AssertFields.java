@@ -17,5 +17,29 @@ public class AssertFields {
         Matcher matcher = pattern.matcher(emailFieldString);
         return matcher.matches();
     }
+
+    public boolean isCardCodeValid(String cardNumber){
+        Pattern pattern = Pattern.compile("^4[0-9]{6,}$");
+        Matcher matcher = pattern.matcher(cardNumber);
+        return matcher.matches();
+    }
+
+    public boolean isMounthValid(String mounthCard){
+        Pattern pattern = Pattern.compile("^(1[0-2]|0[1-9])$");
+        Matcher matcher = pattern.matcher(mounthCard);
+        return matcher.matches();
+    }
+
+    public boolean isYearValid(String yearCard){
+        Pattern pattern = Pattern.compile("^(19|20)\\d{2}$$");
+        Matcher matcher = pattern.matcher(yearCard);
+        return matcher.matches();
+    }
+
+    public boolean isSecurityCodeValid(String securityCode){
+        Pattern pattern = Pattern.compile("[1-9]\\d\\d");
+        Matcher matcher = pattern.matcher(securityCode);
+        return matcher.matches();
+    }
     
 }

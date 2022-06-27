@@ -1,7 +1,9 @@
 package vue;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,13 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.DataBaseModel;
@@ -29,10 +29,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class QuickBooking implements Initializable {
+public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private ImageView imageView;
+
+    @FXML
+    private Button payButton;
 
     @FXML
     private ComboBox<String> filmChoiceBox;
@@ -45,9 +48,12 @@ public class QuickBooking implements Initializable {
 
     @FXML
     private BorderPane secondPage;
-
     @FXML
     private BorderPane thirdPage;
+    @FXML
+    private BorderPane fourthPage;
+    @FXML
+    private BorderPane fifthPage;
 
     @FXML
     private Label dateConfirmation;
@@ -57,6 +63,18 @@ public class QuickBooking implements Initializable {
     private Label timeConfirmation;
     @FXML
     private Label numberOfTicketConfirmation;
+
+    @FXML
+    private TextField cardNumberField;
+
+    @FXML
+    private TextField mounthCardField;
+
+    @FXML
+    private TextField yearMounthCard;
+
+    @FXML
+    private TextField securityCodeField;
 
     @FXML
     private TextField firstName;
@@ -74,6 +92,12 @@ public class QuickBooking implements Initializable {
     public QuickBooking(){
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception
+    {
+        System.out.println("test");
     }
 
     @Override
@@ -153,11 +177,23 @@ public class QuickBooking implements Initializable {
 
     @FXML
     private void quickBookButton(ActionEvent event) {
+        String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
+        int place_session = dataBaseModel.selectNumberPlaceSession(filmChoiceBox.getValue(), roomName, Date.valueOf(dateComboBox.getValue()));
+
         if (filmChoiceBox.getValue() == null || dateComboBox.getValue() == null
                 || timeComboBox.getValue() == null || numberPlace.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("REQUIRED");
             alert.setContentText("ALL FIELD MUST ARE REQUIRED");
+            alert.showAndWait();
+        }
+        else if (filmChoiceBox.getValue() != null && dateComboBox.getValue() != null
+                && timeComboBox.getValue() != null && numberPlace.getValue() != null
+                && Integer.parseInt(numberPlace.getValue()) +place_session > 50) {
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("SORRY BUT TOO MUCH PLACE");
+            alert.setContentText("SORRY BUT THE SESSION IS ALMOST COMPLETE, IT LEFT " + (50-place_session) + "PLACES !");
             alert.showAndWait();
         }
         else {
@@ -171,20 +207,11 @@ public class QuickBooking implements Initializable {
 
     @FXML
     private void confirmButton(ActionEvent event) throws Exception {
-        String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
-        int place_session = dataBaseModel.selectNumberPlaceSession(filmChoiceBox.getValue(), roomName, Date.valueOf(dateComboBox.getValue()));
-        if (Integer.parseInt(numberPlace.getValue()) +place_session > 50) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SORRY BUT TOO MUCH PLACE");
-            alert.setContentText("SORRY BUT THE SESSION IS ALMOST COMPLETE, IT LEFT " + (50-place_session) + "PLACES !");
-            alert.showAndWait();
-        }
-        else {
-            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
-            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
-                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
-            confirmationDone();
-        }
+        thirdPage.setVisible(true);
+//            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
+//            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
+//                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
+            // confirmationDone();
     }
 
     @FXML
@@ -193,7 +220,35 @@ public class QuickBooking implements Initializable {
     }
 
     @FXML
-    private void confirmationDone() {
-        thirdPage.setVisible(true);
+    private void backButtonPaiment(ActionEvent event) {
+        thirdPage.setVisible(false);
+        secondPage.setVisible(true);
+    }
+
+    @FXML
+    private void confirmationDone(ActionEvent event) {
+        if (assertFields.isCardCodeValid(cardNumberField.getText()) &&
+                assertFields.isMounthValid(mounthCardField.getText()) &&
+                assertFields.isYearValid(yearMounthCard.getText()) &&
+                assertFields.isSecurityCodeValid(securityCodeField.getText())
+        ) {
+            PauseTransition wait = new PauseTransition(Duration.seconds(3));
+            fourthPage.setVisible(true);
+            wait.setOnFinished((e) -> {
+                fifthPage.setVisible(true);
+            });
+            wait.play();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("WRONG NUMBER");
+            alert.setContentText("PLEASE ENTER CORRECT FORMAT");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void paymentConfirmation() {
+        fourthPage.setVisible(true);
     }
 }

@@ -391,6 +391,9 @@ public class DataBaseModel {
         } catch (SQLException e) {
             System.out.println(e);
         }
+        catch (Exception e) {
+            System.out.println("Wrong value");
+        }
         return roomName;
     }
 

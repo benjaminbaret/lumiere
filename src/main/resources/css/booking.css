@@ -1,0 +1,48 @@
+#payButton {
+    -fx-background-color : #5271ff;
+}
+
+#payButton:hover {
+    -fx-background-color: #5271ff;
+    -fx-effect: dropshadow(three-pass-box, grey, 6, 0, 0, 3);
+}
+
+#cardNumberField {
+    -fx-background-color:transparent;
+    -fx-border-color:#95afc0;
+    -fx-border-radius:5px;
+}
+
+#cardNumberField:hover {
+    -fx-effect: dropshadow(gaussian, #95afc0, 1, 0, 0, 0);
+}
+
+#mounthCardField {
+    -fx-background-color:transparent;
+    -fx-border-color:#95afc0;
+    -fx-border-radius:5px;
+}
+
+#mounthCardField:hover {
+     -fx-effect: dropshadow(gaussian, #95afc0, 1, 0, 0, 0);
+ }
+
+#yearMounthCard {
+    -fx-background-color:transparent;
+    -fx-border-color:#95afc0;
+    -fx-border-radius:5px;
+}
+
+#yearMounthCard:hover {
+     -fx-effect: dropshadow(gaussian, #95afc0, 1, 0, 0, 0);
+}
+
+#securityCodeField {
+    -fx-background-color:transparent;
+    -fx-border-color:#95afc0;
+    -fx-border-radius:5px;
+}
+
+#securityCodeField:hover {
+    -fx-effect: dropshadow(gaussian, #95afc0, 1, 0, 0, 0);
+}
