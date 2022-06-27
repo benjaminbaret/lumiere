@@ -248,7 +248,15 @@ public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private void confirmButton(ActionEvent event) {
-        thirdPage.setVisible(true);
+        if(assertFields.isEmailAddressTextFieldValid(emailAdress.getText()) && !Objects.equals(firstName.getText(), "") && !Objects.equals(lastName.getText(), "")){
+            thirdPage.setVisible(true);
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("PLEASE ANSWER WITH GOOD INFORMATIONS");
+            alert.setContentText("Make sure that email is type : email@example.com");
+            alert.showAndWait();
+        }
     }
 
     @FXML
