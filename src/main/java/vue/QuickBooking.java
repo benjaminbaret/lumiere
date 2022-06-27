@@ -86,7 +86,7 @@ public class QuickBooking extends Application implements Initializable {
     @FXML
     private TextField emailAdress;
 
-    private final ObservableList<String> numberOfPlace = FXCollections.observableArrayList("1","2","3","4","5","6","7","8");
+    private final ObservableList<String> numberOfPlace = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
 
     int count;
 
@@ -94,14 +94,13 @@ public class QuickBooking extends Application implements Initializable {
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
-    public QuickBooking(){
+    public QuickBooking() {
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
     }
 
     @Override
-    public void start(Stage stage) throws Exception
-    {
+    public void start(Stage stage) throws Exception {
         System.out.println("test");
     }
 
@@ -123,15 +122,15 @@ public class QuickBooking extends Application implements Initializable {
         timeComboBox.setItems(dataBaseModel.getInformationsMoviesByColumn("duration"));
     }
 
-    public void slideshow(){
-        ArrayList<Image> images =new ArrayList<>();
+    public void slideshow() {
+        ArrayList<Image> images = new ArrayList<>();
         images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\interstellar-slide.jpg"));
         images.add(new Image("C:\\Users\\benja\\IdeaProjects\\lum\\src\\main\\resources\\img\\star-wars-slide.jpg"));
 
-        Timeline timeline=new Timeline(new KeyFrame(Duration.seconds(5), event->{
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
             imageView.setImage(images.get(count));
-            count ++;
-            if(count ==images.size()) count=0;
+            count++;
+            if (count == images.size()) count = 0;
         }));
 
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -155,14 +154,25 @@ public class QuickBooking extends Application implements Initializable {
     }
 
     @FXML
+    private void actionChoiceDoneFilm(){
+        ObservableList<String> obListOfSessionDate = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionDate(filmChoiceBox.getValue())));
+        ObservableList<String> obListOfSessionTime = FXCollections.observableList(new ArrayList<>(dataBaseModel.selectSessionTime(filmChoiceBox.getValue())));
+        dateComboBox.setItems(obListOfSessionDate);
+        timeComboBox.setItems(obListOfSessionTime);
+
+        dateComboBox.setPromptText("Session date");
+        timeComboBox.setPromptText("Duration");
+    }
+
+    @FXML
     private void buttonEraseClicked() throws SQLException {
-        for(int i=0; i< filmChoiceBox.getItems().size(); i++){
+        for (int i = 0; i < filmChoiceBox.getItems().size(); i++) {
             filmChoiceBox.getItems().remove(i);
         }
-        for(int i=0; i< dateComboBox.getItems().size(); i++){
+        for (int i = 0; i < dateComboBox.getItems().size(); i++) {
             dateComboBox.getItems().remove(i);
         }
-        for(int i=0; i< timeComboBox.getItems().size(); i++){
+        for (int i = 0; i < timeComboBox.getItems().size(); i++) {
             timeComboBox.getItems().remove(i);
         }
         filmChoiceBox.setItems(dataBaseModel.getInformationsMoviesByColumn("title"));
@@ -172,11 +182,11 @@ public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private void backToChoiceButton(ActionEvent event) throws IOException {
-        FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
+        FXMLLoader choiceScreenLoader = new FXMLLoader(getClass().getResource("choice_screen.fxml"));
         Parent root = choiceScreenLoader.load();
         ChoiceScreen choiceScreenController = choiceScreenLoader.getController();
         choiceScreenController.setHelloLabel(emailLogged);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -184,8 +194,6 @@ public class QuickBooking extends Application implements Initializable {
 
     @FXML
     private void quickBookButton(ActionEvent event) {
-        String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
-        int place_session = dataBaseModel.selectNumberPlaceSession(filmChoiceBox.getValue(), roomName, Date.valueOf(dateComboBox.getValue()));
 
         if (filmChoiceBox.getValue() == null || dateComboBox.getValue() == null
                 || timeComboBox.getValue() == null || numberPlace.getValue() == null) {
@@ -193,27 +201,32 @@ public class QuickBooking extends Application implements Initializable {
             alert.setTitle("REQUIRED");
             alert.setContentText("ALL FIELD MUST ARE REQUIRED");
             alert.showAndWait();
-        }
-        else if (filmChoiceBox.getValue() != null && dateComboBox.getValue() != null
-                && timeComboBox.getValue() != null && numberPlace.getValue() != null
-                && Integer.parseInt(numberPlace.getValue()) +place_session > 50) {
+        } else if (filmChoiceBox.getValue() != null && dateComboBox.getValue() != null
+                && timeComboBox.getValue() != null && numberPlace.getValue() != null) {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SORRY BUT TOO MUCH PLACE");
-            alert.setContentText("SORRY BUT THE SESSION IS ALMOST COMPLETE, IT LEFT " + (50-place_session) + "PLACES !");
-            alert.showAndWait();
-        }
-        else {
-            secondPage.setVisible(true);
-            movieConfirmation.setText("Movie : " + filmChoiceBox.getValue());
-            dateConfirmation.setText("Date : " + dateComboBox.getValue());
-            timeConfirmation.setText("Time : " + timeComboBox.getValue());
-            numberOfTicketConfirmation.setText("Number of place : " + numberPlace.getValue());
+            String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
+            int place_session = dataBaseModel.selectNumberPlaceSession(filmChoiceBox.getValue(), roomName, Date.valueOf(dateComboBox.getValue()));
 
-            if(!Objects.equals(emailLogged, "No account")){
-                firstName.setText(dataBaseModel.getFirstName(emailLogged));
-                lastName.setText(dataBaseModel.getLastName(emailLogged));
-                emailAdress.setText(emailLogged);
+
+            if (Integer.parseInt(numberPlace.getValue()) + place_session > 50){
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("SORRY BUT TOO MUCH PLACE");
+                alert.setContentText("SORRY BUT THE SESSION IS ALMOST COMPLETE, IT LEFT " + (50 - place_session) + "PLACES !");
+                alert.showAndWait();
+            }
+            else {
+                secondPage.setVisible(true);
+                movieConfirmation.setText("Movie : " + filmChoiceBox.getValue());
+                dateConfirmation.setText("Date : " + dateComboBox.getValue());
+                timeConfirmation.setText("Time : " + timeComboBox.getValue());
+                numberOfTicketConfirmation.setText("Number of place : " + numberPlace.getValue());
+
+                if (!Objects.equals(emailLogged, "No account")) {
+                    firstName.setText(dataBaseModel.getFirstName(emailLogged));
+                    lastName.setText(dataBaseModel.getLastName(emailLogged));
+                    emailAdress.setText(emailLogged);
+                }
             }
         }
     }
@@ -224,7 +237,7 @@ public class QuickBooking extends Application implements Initializable {
 //            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
 //            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
 //                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
-            // confirmationDone();
+        // confirmationDone();
     }
 
     @FXML
@@ -251,8 +264,7 @@ public class QuickBooking extends Application implements Initializable {
                 fifthPage.setVisible(true);
             });
             wait.play();
-        }
-        else {
+        } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("WRONG NUMBER");
             alert.setContentText("PLEASE ENTER CORRECT FORMAT");
@@ -265,7 +277,7 @@ public class QuickBooking extends Application implements Initializable {
         fourthPage.setVisible(true);
     }
 
-    public void setEmailLogged(String email){
+    public void setEmailLogged(String email) {
         emailLogged = email;
     }
 }
