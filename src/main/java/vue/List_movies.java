@@ -25,14 +25,10 @@ public class List_movies implements Initializable {
 
     @FXML
     private GridPane grid;
-
     @FXML
     private Label userMailLabel;
-
     private List<Movie> list_movie;
-
     private boolean isEmployee;
-
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
@@ -42,6 +38,11 @@ public class List_movies implements Initializable {
         dataBaseModel = new DataBaseModel();
     }
 
+    /**
+     * initialize the page
+     * @param location URL location
+     * @param resources ressources
+     */
     // initialize the page
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -126,10 +127,16 @@ public class List_movies implements Initializable {
 
     }
 
+    /**
+     * @param userMailString email adress of the user
+     */
     public void setUserMailLabel(String userMailString){
         userMailLabel.setText(userMailString);
     }
 
+    /**
+     * @param state status of the employee
+     */
     public void setIsEmployee(boolean state){
         isEmployee = state;
     }

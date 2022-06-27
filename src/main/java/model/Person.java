@@ -2,6 +2,9 @@ package model;
 
 import java.sql.Date;
 
+/**
+ * Abstract class Person which defines the basic fields of a person
+ */
 public abstract class Person {
     private String firstName;
     private String lastName;
@@ -9,6 +12,12 @@ public abstract class Person {
     
     private Date dateOfBirth;
 
+    /**
+     * @param firstName first name of a person
+     * @param lastName lasr name of a person
+     * @param email email adress of a person
+     * @param dateOfBirth date of birth of a person
+     */
     // constructor
     public Person(String firstName, String lastName, String email, Date dateOfBirth) {
         this.firstName = firstName;
