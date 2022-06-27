@@ -22,7 +22,7 @@
             <Image url="@../img/inglorious_basterds.jpg" />
          </image>
       </ImageView>
-      <ComboBox fx:id="filmChoiceBox" layoutX="71.0" layoutY="543.0" prefHeight="35.0" prefWidth="220.0" promptText="Title" style="-fx-background-color: white;" />
+      <ComboBox fx:id="filmChoiceBox" layoutX="71.0" layoutY="543.0" onMouseClicked="#actionChoiceDoneFilm" prefHeight="35.0" prefWidth="220.0" promptText="Title" style="-fx-background-color: white;" />
       <ComboBox fx:id="dateComboBox" layoutX="301.0" layoutY="543.0" onMouseClicked="#actionChoiceDoneDate" prefHeight="35.0" prefWidth="160.0" promptText="Session date" style="-fx-background-color: white;" />
       <ComboBox fx:id="numberPlace" layoutX="674.0" layoutY="543.0" onMouseClicked="#actionChoiceDoneDate" prefHeight="35.0" prefWidth="150.0" promptText="Number of place" style="-fx-background-color: white;" />
       <Button layoutX="836.0" layoutY="543.0" mnemonicParsing="false" onAction="#quickBookButton" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #506FFF;" text="QUICK BOOK" textFill="WHITE">

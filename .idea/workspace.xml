@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DataBaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/choice_screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vue/quick_booking.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656337307789</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;">
+      <created>1656339379765</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656339379765</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +138,7 @@
     <MESSAGE value="- stable version (I hope)" />
     <MESSAGE value="- (re)add eimail field in customer" />
     <MESSAGE value="Cookie setting for employee OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cookie setting for employee OK" />
+    <MESSAGE value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
   </component>
 </project>
