@@ -100,6 +100,11 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
+                        <Label fx:id="priceTicket" layoutX="26.0" layoutY="356.0" text="Price : ">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                         <Button layoutX="26.0" layoutY="511.0" mnemonicParsing="false" onAction="#backToQuickBooking" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #c1c1c1; -fx-background-radius: 5px;" text="Back" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />

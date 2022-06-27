@@ -86,6 +86,9 @@ public class QuickBooking extends Application implements Initializable {
     @FXML
     private TextField emailAdress;
 
+    @FXML
+    private Label priceTicket;
+
     private final ObservableList<String> numberOfPlace = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
 
     int count;
@@ -228,6 +231,11 @@ public class QuickBooking extends Application implements Initializable {
                 dateConfirmation.setText("Date : " + dateComboBox.getValue());
                 timeConfirmation.setText("Time : " + timeComboBox.getValue());
                 numberOfTicketConfirmation.setText("Number of place : " + numberPlace.getValue());
+                if(!Objects.equals(emailLogged, "No account")){
+                    priceTicket.setText("Price : 7£");
+                }else{
+                    priceTicket.setText("Price : 10£");
+                }
 
                 if (!Objects.equals(emailLogged, "No account")) {
                     firstName.setText(dataBaseModel.getFirstName(emailLogged));
