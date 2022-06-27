@@ -31,10 +31,13 @@ public class List_movies implements Initializable {
 
     private List<Movie> list_movie;
 
+    private boolean isEmployee;
+
     AssertFields assertFields;
     DataBaseModel dataBaseModel;
 
     public List_movies() {
+        isEmployee = false;
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
     }
@@ -100,16 +103,35 @@ public class List_movies implements Initializable {
 
     // load choice screen page
     public void backToHome(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
-        Parent root = addMemberScreenLoader.load();
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(isEmployee){
+            FXMLLoader choiceScreenAdminLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
+            Parent root = choiceScreenAdminLoader.load();
+            ChoiceScreenAdmin choiceScreenAdmin = choiceScreenAdminLoader.getController();
+            choiceScreenAdmin.setEmailLabel(userMailLabel.getText());
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
+            Parent root = choiceScreenLoader.load();
+            ChoiceScreen choiceScreen = choiceScreenLoader.getController();
+            choiceScreen.setHelloLabel(userMailLabel.getText());
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
     public void setUserMailLabel(String userMailString){
         userMailLabel.setText(userMailString);
+    }
+
+    public void setIsEmployee(boolean state){
+        isEmployee = state;
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class MailSender {
 
     public static void sendMail(String recepient, String firstName, String movieTitle, String roomName,
-                                String dateSession, String startTime, String numberOfTicket) throws Exception {
+                                String dateSession, String startTime, String numberOfTicket)throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 

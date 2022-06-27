@@ -22,6 +22,9 @@ public class ChoiceScreenAdmin {
     public void listMoviesButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
         Parent root = listMoviesLoader.load();
+        List_movies list_movies = listMoviesLoader.getController();
+        list_movies.setIsEmployee(true);
+        list_movies.setUserMailLabel(emailLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -31,8 +34,10 @@ public class ChoiceScreenAdmin {
     // load add movie page
     @FXML
     public void addMovieButtonClicked(ActionEvent event) throws IOException {
-        FXMLLoader addMovieButtton = new FXMLLoader(getClass().getResource("add_movie_one.fxml"));
-        Parent root = addMovieButtton.load();
+        FXMLLoader addMovieLoader = new FXMLLoader(getClass().getResource("add_movie_one.fxml"));
+        Parent root = addMovieLoader.load();
+        AddMovie_one addMovie_oneController = addMovieLoader.getController();
+        addMovie_oneController.setEmailEmployee(emailLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -42,8 +47,10 @@ public class ChoiceScreenAdmin {
     // load add session page
     @FXML
     public void addSessionButtonClicked(ActionEvent event) throws IOException {
-        FXMLLoader addSessionButton = new FXMLLoader(getClass().getResource("add_session.fxml"));
-        Parent root = addSessionButton.load();
+        FXMLLoader addSessionLoader = new FXMLLoader(getClass().getResource("add_session.fxml"));
+        Parent root = addSessionLoader.load();
+        AddSession addSessionController = addSessionLoader.getController();
+        addSessionController.setEmailEmployee(emailLabel.getText());
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

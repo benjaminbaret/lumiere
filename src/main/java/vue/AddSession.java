@@ -18,6 +18,7 @@ import jfxtras.scene.control.LocalTimeTextField;
 import model.DataBaseModel;
 import model.Session;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -45,6 +46,8 @@ public class AddSession implements Initializable {
     private DatePicker sessionDate_field;
     @FXML
     private LocalTimeTextField startTime_field;
+
+    public String emailEmployee;
 
     // constructor
     public AddSession(){
@@ -105,8 +108,10 @@ public class AddSession implements Initializable {
     // a button that go to the choice screen admin
     @FXML
     public void backToChoiceAdmin(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
-        Parent root = addMemberScreenLoader.load();
+        FXMLLoader choiceScreenAdminLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
+        Parent root = choiceScreenAdminLoader.load();
+        ChoiceScreenAdmin choiceScreenAdminController = choiceScreenAdminLoader.getController();
+        choiceScreenAdminController.setEmailLabel(emailEmployee);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -126,6 +131,10 @@ public class AddSession implements Initializable {
     @FXML
     public boolean checkDate() {
         return ((Date.valueOf(sessionDate_field.getValue()).toLocalDate().isBefore((LocalDate.now()))));
+    }
+
+    public void setEmailEmployee(String email){
+        emailEmployee = email;
     }
 
 }

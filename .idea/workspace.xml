@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="- update - paiement">
+    <list default="true" id="88e8d550-1de4-4980-a95b-4ab22325d908" name="Changes" comment="- (re)add eimail field in customer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/AddMovie_one.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/AddSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/AddSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ChoiceScreenAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/List_movies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/MailSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/QuickBooking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/RegistrationMember.java" afterDir="false" />
@@ -24,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,24 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-18",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37356323",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37356323&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
-    <configuration name="vue.MainVue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MainVue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="vue.MainVue" />
       <module name="lum" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\afram\Downloads\openjfx-18.0.1_windows-x64_bin-sdk\javafx-sdk-18.0.1\lib --add-modules=javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\benja\Downloads\openjfx-18.0.1_windows-x64_bin-sdk\javafx-sdk-18.0.1\lib --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="vue.*" />
@@ -71,7 +76,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.vue.MainVue" />
+        <item itemvalue="Application.MainVue" />
       </list>
     </recent_temporary>
   </component>
@@ -105,14 +110,7 @@
       <option name="project" value="LOCAL" />
       <updated>1656253222403</updated>
     </task>
-    <task id="LOCAL-00004" summary="- update - paiement">
-      <created>1656326665551</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1656326665552</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,7 +128,6 @@
     <MESSAGE value="- new SQL file" />
     <MESSAGE value="- stable version (I hope)" />
     <MESSAGE value="- (re)add eimail field in customer" />
-    <MESSAGE value="- update - paiement" />
-    <option name="LAST_COMMIT_MESSAGE" value="- update - paiement" />
+    <option name="LAST_COMMIT_MESSAGE" value="- (re)add eimail field in customer" />
   </component>
 </project>

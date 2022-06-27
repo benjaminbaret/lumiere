@@ -71,6 +71,8 @@ public class AddMovie_one {
 
     // image of the movie
     private InputStream imageMovie;
+    
+    private String emailEmployee;
 
     public AddMovie_one() {
         assertFields = new AssertFields();
@@ -104,8 +106,10 @@ public class AddMovie_one {
 
     @FXML
     public void backToListMovie(ActionEvent event) throws  IOException {
-        FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
-        Parent root = addMemberScreenLoader.load();
+        FXMLLoader choiceScreenLoader= new FXMLLoader(getClass().getResource("choice_screen_admin.fxml"));
+        Parent root = choiceScreenLoader.load();
+        ChoiceScreenAdmin choiceScreenAdmin = choiceScreenLoader.getController();
+        choiceScreenAdmin.setEmailLabel(emailEmployee);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -134,6 +138,10 @@ public class AddMovie_one {
 
         // display the window "the movie has been added"
         thirdWindow.setVisible(true);
+    }
+    
+    public void setEmailEmployee(String email){
+        emailEmployee = email;
     }
 
 }

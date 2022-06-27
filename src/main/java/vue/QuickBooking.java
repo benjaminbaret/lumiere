@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.DataBaseModel;
@@ -205,8 +206,11 @@ public class QuickBooking extends Application implements Initializable {
     }
 
     @FXML
-    private void confirmButton(ActionEvent event) {
+    private void confirmButton(ActionEvent event) throws Exception {
         thirdPage.setVisible(true);
+//            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
+//            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
+//                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
             // confirmationDone();
     }
 
@@ -222,8 +226,7 @@ public class QuickBooking extends Application implements Initializable {
     }
 
     @FXML
-    private void confirmationDone(ActionEvent event) throws Exception {
-        String roomName = dataBaseModel.selectRoomNameSession(filmChoiceBox.getValue(), dateComboBox.getValue());
+    private void confirmationDone(ActionEvent event) {
         if (assertFields.isCardCodeValid(cardNumberField.getText()) &&
                 assertFields.isMounthValid(mounthCardField.getText()) &&
                 assertFields.isYearValid(yearMounthCard.getText()) &&
@@ -235,9 +238,6 @@ public class QuickBooking extends Application implements Initializable {
                 fifthPage.setVisible(true);
             });
             wait.play();
-            dataBaseModel.updatePlaceSession(filmChoiceBox.getValue(),roomName,dateComboBox.getValue(), Integer.parseInt(numberPlace.getValue()));
-            MailSender.sendMail(emailAdress.getText(), firstName.getText(), filmChoiceBox.getValue(),
-                    roomName,dateComboBox.getValue(), timeComboBox.getValue(), numberPlace.getValue());
         }
         else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
