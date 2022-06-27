@@ -6,31 +6,31 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * DataBaseModel class which allows you to interact with the database
+ */
 public class DataBaseModel {
 
+    /**
+     * URL OF THE DATABASE
+     */
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/lumierebdd";
+
+    /**
+     * USERNAME OF THE DATABASE
+     */
     private static final String DATABASE_USERNAME = "root";
+
+    /**
+     * PASSWORD OF THE DTABASE
+     */
     private static final String DATABASE_PASSWORD = "";
 
-    public void insertRoom(String room_name, int capacity) {
-        String INSERT_QUERY = "INSERT INTO room (name, capacity) VALUES (?, ?)";
-
-        // Establishing a Connection
-        try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
-
-            // Create a statement
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY);
-            preparedStatement.setString(1, room_name);
-            preparedStatement.setInt(2, capacity);
-            System.out.println(preparedStatement);
-
-            // Execute the query
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
-
+    /**
+     * method that allows to add a customer in the customer table of the database
+     * @param customer
+     * @return void
+     */
     public void insertClient(Customer customer){
 
         String INSERT_QUERY_CUSTOMER = "INSERT INTO `customer` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `phoneNumber`) VALUES (?, ?, ?, ?, ?, ?)";
@@ -55,7 +55,13 @@ public class DataBaseModel {
         }
     }
 
+    /**
+     * method that allows to add a movie in the movie table of the database
+     * @param movie
+     * @return void
+     */
     public void insertNewMovie(Movie movie) {
+        // QUERY INSERT INTO
         String INSERT_QUERY_MOVIE = "INSERT INTO `movie` (`title`, `releaseDate`, `duration`, `image`, `director`, `realisator`, `genre`, `description`, `actor`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)) {
@@ -79,7 +85,10 @@ public class DataBaseModel {
         }
     }
 
-    // return a ArrayList which contains all the movies information
+    /**
+     * method that return an ArrayList which contains all the movies information
+     * @return ArrayList<Movie>
+     */
     public ArrayList<Movie> selectImageMovie() {
         // An ArrayList which contains a list of arraylist
         ArrayList<Movie> list_movies = new ArrayList<>();
@@ -115,7 +124,10 @@ public class DataBaseModel {
         return list_movies;
     }
 
-    // select all the title from the movie
+    /**
+     * method that return an ArrayList which contains all the titles of movies into an ArrayList
+     * @return ArrayList<String>
+     */
     public ArrayList<String> selectTitleMovie() {
         ArrayList<String> list_title_movies = new ArrayList<>();
 
@@ -136,6 +148,10 @@ public class DataBaseModel {
         return list_title_movies;
     }
 
+    /**
+     * method that return an ArrayList which contains all the room name into an ArrayList
+     * @return ArrayList<String>
+     */
     // select all the title from the movie
     public ArrayList<String> selectRoomName() {
         ArrayList<String> list_room_name = new ArrayList<>();
@@ -159,6 +175,11 @@ public class DataBaseModel {
         return list_room_name;
     }
 
+    /**
+     * method that allows to add a session in the session table of the database
+     * @param session
+     * @return void
+     */
     public void insertNewSession(Session session) {
         String INSERT_QUERY_MOVIE = "INSERT INTO `session` (`movieTitle`, `roomName`, `sessionDate`, `startTime`, `endTime`, `placeLeft`) VALUES (?, ?, ?, ?, ?, 0)";
 
@@ -179,6 +200,11 @@ public class DataBaseModel {
         }
     }
 
+    /**
+     * method that allows to add a guest in the guest table of the database
+     * @param guest
+     * @return void
+     */
     public void insertGuest(Guest guest){
         String INSERT_QUERY_GUEST = "INSERT INTO `guest` (`firstName`, `lastName`, `dateOfBirth`, `email`) VALUES (?, ?, ?, ?)";
 
@@ -200,6 +226,12 @@ public class DataBaseModel {
     }
 
 
+    /**
+     * method to check if the client can authenticate
+     * @param email
+     * @param password
+     * @return boolean
+     */
     public boolean authenticateClient(String email, String password){
         String SQL_QUERY = "SELECT * FROM `customer` WHERE email = '"+ email + "' AND password = '"+ password + "';";
         try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
@@ -217,6 +249,13 @@ public class DataBaseModel {
         }
        return false;
     }
+
+    /**
+     * method to check if the employee can authenticate
+     * @param email
+     * @param password
+     * @return boolean
+     */
     public boolean authenticateEmployee(String email, String password){
         String SQL_QUERY = "SELECT * FROM `employee` WHERE email = '"+ email + "' AND password = '"+ password + "';";
         try(Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD)){
@@ -235,6 +274,13 @@ public class DataBaseModel {
        return false;
     }
 
+
+    /**
+     * method that get all information of movies
+     * @param columnLabel
+     * @return ObservableList<String>
+     * @throws SQLException
+     */
     public ObservableList<String> getInformationsMoviesByColumn(String columnLabel) throws SQLException {
         String SQL_QUERY = "SELECT * FROM `movie` ";
         ArrayList<String> newArrar = new ArrayList<>();
@@ -252,6 +298,14 @@ public class DataBaseModel {
         return FXCollections.observableArrayList(newArrar);
     }
 
+    /**
+     * method that get all information of movies by column
+     * @param columnLabel
+     * @param columnSelected
+     * @param parameterChoosed
+     * @return ObservableList<String>
+     * @throws SQLException
+     */
     public ObservableList<String> getInformationsMoviesByColumn(String columnLabel, String columnSelected, String parameterChoosed) throws SQLException {
         String SQL_QUERY = "SELECT * FROM `movie` WHERE " + columnSelected + " = '" + parameterChoosed + "';";
         ArrayList<String> newArrar = new ArrayList<>();
@@ -268,7 +322,11 @@ public class DataBaseModel {
         return FXCollections.observableArrayList(newArrar);
     }
 
-    // select an information from a session
+    /**
+     * select an information from a session
+     * @param columnLabel
+     * @return ArrayList<String>
+     */
     public ArrayList<String> getInformationFromSession(String columnLabel) {
         ArrayList<String> list_session = new ArrayList<>();
 
@@ -289,7 +347,10 @@ public class DataBaseModel {
         return list_session;
     }
 
-    // select all the title movie from session
+    /**
+     * select all the title movie from session
+     * @return ArrayList<String>
+     */
     public ArrayList<String> selectTitleMovieFromSession() {
         ArrayList<String> list_title_movies = new ArrayList<>();
 
@@ -310,7 +371,11 @@ public class DataBaseModel {
         return list_title_movies;
     }
 
-    // select the session date from session
+    /**
+     * select the session date from session
+     * @param titleOfTheMovie
+     * @return ArrayList<String>
+     */
     public ArrayList<String> selectSessionDate(String titleOfTheMovie) {
         ArrayList<String> list_session_date = new ArrayList<>();
 
@@ -331,7 +396,11 @@ public class DataBaseModel {
         return list_session_date;
     }
 
-    // select the session date time from session
+    /**
+     * select the session date time from session
+     * @param titleOfTheMovie
+     * @return ArrayList<String>
+     */
     public ArrayList<String> selectSessionTime(String titleOfTheMovie) {
         ArrayList<String> list_date_time = new ArrayList<>();
 
@@ -352,6 +421,12 @@ public class DataBaseModel {
         return list_date_time;
     }
 
+    /**
+     * @param movieTitle Title of the movie
+     * @param roomName Name of the room
+     * @param sessionDate
+     * @return int
+     */
     public int selectNumberPlaceSession(String movieTitle, String roomName, Date sessionDate) {
         int numberplace = 0;
 
@@ -372,6 +447,12 @@ public class DataBaseModel {
         return numberplace;
     }
 
+    /**
+     * return the name of the room session
+     * @param movieTile
+     * @param sessionDate
+     * @return String
+     */
     public String selectRoomNameSession(String movieTile, String sessionDate) {
         String roomName="";
         Date date = Date.valueOf(sessionDate);
@@ -397,6 +478,13 @@ public class DataBaseModel {
         return roomName;
     }
 
+    /**
+     * update the number of place in session
+     * @param movieTitle title of the movie
+     * @param roomName name of the room
+     * @param sessionDate session date
+     * @param placeNumber number place of the session
+     */
     public void updatePlaceSession(String movieTitle, String roomName, String sessionDate, int placeNumber) {
         int place = selectNumberPlaceSession(movieTitle,roomName, Date.valueOf(sessionDate));
         String UPDATE_QUERY_SESSION = "UPDATE `session` SET `placeLeft`='"+(placeNumber+place)+"' WHERE `movieTitle`='"+movieTitle+"' AND `roomName`='"+roomName+"' AND `sessionDate`='"+sessionDate+"';";

@@ -119,21 +119,7 @@
       <option name="project" value="LOCAL" />
       <updated>1656339379765</updated>
     </task>
-    <task id="LOCAL-00006" summary="azerty">
-      <created>1656341006714</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1656341006714</updated>
-    </task>
-    <task id="LOCAL-00007" summary="QUERTY IS BETTER">
-      <created>1656342319149</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1656342319149</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,8 +139,6 @@
     <MESSAGE value="- (re)add eimail field in customer" />
     <MESSAGE value="Cookie setting for employee OK" />
     <MESSAGE value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
-    <MESSAGE value="azerty" />
-    <MESSAGE value="QUERTY IS BETTER" />
-    <option name="LAST_COMMIT_MESSAGE" value="QUERTY IS BETTER" />
+    <option name="LAST_COMMIT_MESSAGE" value="préremplissage des champs (par requête sql) lors de la réservation ssi le champ adresse mail != &quot;No account&quot;" />
   </component>
 </project>

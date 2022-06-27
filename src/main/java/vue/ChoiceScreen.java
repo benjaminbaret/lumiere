@@ -20,6 +20,11 @@ public class ChoiceScreen {
         emailLabel.setText(labelString);
     }
 
+    /**
+     * load the list movies page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void listMoviesButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader listMoviesLoader = new FXMLLoader(getClass().getResource("list_movies.fxml"));
@@ -32,6 +37,11 @@ public class ChoiceScreen {
         stage.show();
      }
 
+    /**
+     * load the quick booking page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void quickBookingButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader quickBookingLoader = new FXMLLoader(getClass().getResource("quick_booking.fxml"));
@@ -45,6 +55,11 @@ public class ChoiceScreen {
         stage.show();
     }
 
+    /**
+     * load the home screen page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void backToHomeScreen(ActionEvent event) throws IOException {
         FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("home_screen.fxml"));

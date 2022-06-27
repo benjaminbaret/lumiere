@@ -34,6 +34,12 @@ public class FilmResearch implements Initializable {
         assertFields = new AssertFields();
         dataBaseModel = new DataBaseModel();
     }
+
+    /**
+     * initialize the page
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initialize ObservableList with the selectTitleMovie methode (which is an ArrayList)
@@ -42,6 +48,9 @@ public class FilmResearch implements Initializable {
         filmChoiceBox.setItems(obListOfTitleMovie);
     }
 
+    /**
+     * set the time of the movie into timeComboBox
+     */
     @FXML
     private void actionChoiceDoneTime() {
         if (dateComboBox.getValue() != null) {
@@ -50,6 +59,9 @@ public class FilmResearch implements Initializable {
         }
     }
 
+    /**
+     * set the date of the movie into dateComboBox
+     */
     @FXML
     private void actionChoiceDoneDate() {
         if (timeComboBox.getValue() == null) {
@@ -58,6 +70,10 @@ public class FilmResearch implements Initializable {
         }
     }
 
+    /**
+     * reset all the fields
+     * @throws SQLException
+     */
     @FXML
     private void buttonEraseClicked() throws SQLException {
         for(int i=0; i< filmChoiceBox.getItems().size(); i++){
@@ -88,6 +104,11 @@ public class FilmResearch implements Initializable {
 
     }
 
+    /**
+     * load the choice screen page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void backToChoiceButton(ActionEvent event) throws IOException {
         FXMLLoader addMemberScreenLoader= new FXMLLoader(getClass().getResource("choice_screen.fxml"));
